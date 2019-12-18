@@ -442,3 +442,57 @@ F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
 2019-12-18 22:34:09  [ http-nio-8080-exec-6:0 ] - [ INFO ]  =====dao层=====
 2019-12-18 22:34:09  [ http-nio-8080-exec-6:3 ] - [ INFO ]  =====service层=====
 2019-12-18 22:34:09  [ http-nio-8080-exec-6:205 ] - [ INFO ]  =====ReData数据:{"errorcode":0}
+2019-12-18 22:44:35  [ http-nio-8080-exec-9:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:44:35  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:44:36  [ http-nio-8080-exec-9:205 ] - [ INFO ]  =====ReData数据:{"errorcode":0}
+2019-12-18 23:20:03  [ http-nio-8080-exec-8:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:20:03  [ http-nio-8080-exec-8:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:20:03  [ http-nio-8080-exec-8:199 ] - [ INFO ]  =====ReData数据:{"errorcode":0}
+2019-12-18 23:25:13  [ http-nio-8080-exec-5:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:25:13  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:25:13  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:25:14  [ http-nio-8080-exec-5:961 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:25:14  [ http-nio-8080-exec-5:961 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:26:36  [ http-nio-8080-exec-5:1 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:26:36  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:26:36  [ http-nio-8080-exec-5:4 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:26:37  [ http-nio-8080-exec-5:881 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:26:37  [ http-nio-8080-exec-5:881 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:28:47  [ http-nio-8080-exec-3:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:28:47  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:28:47  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:28:48  [ http-nio-8080-exec-3:895 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:28:48  [ http-nio-8080-exec-3:896 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:32:56  [ http-nio-8080-exec-9:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:32:56  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:32:56  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:32:57  [ http-nio-8080-exec-9:908 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:32:57  [ http-nio-8080-exec-9:908 ] - [ INFO ]  [Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}]
+2019-12-18 23:33:40  [ http-nio-8080-exec-3:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:33:40  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:33:40  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:33:41  [ http-nio-8080-exec-3:917 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:39:47  [ http-nio-8080-exec-8:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:39:47  [ http-nio-8080-exec-8:2 ] - [ INFO ]  =====service层=====
+2019-12-18 23:39:47  [ http-nio-8080-exec-8:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:39:48  [ http-nio-8080-exec-8:860 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:39:49  [ http-nio-8080-exec-8:1032 ] - [ INFO ]  JsonObj{errorcode=0, errormsg='查询成功！', data={"staAttackPower":"211.0","staAttackSpeed":"较慢","staAvoidNum":"1.0","staCareer":"辅助","staCost":"10.0","staDefence":"60.0","staFaction":"莱茵生命实验室","staHealth":"495.0","staId":45,"staName":"麦哲伦","staRarity":"6.0","staRedeploySpeed":"慢","staSex":"女","staSpellResistance":"15.0"}}
+2019-12-18 23:39:49  [ http-nio-8080-exec-8:1032 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 23:39:49  [ http-nio-8080-exec-8:1032 ] - [ INFO ]  =====ReData数据:{"data":"{\"staAttackPower\":\"211.0\",\"staAttackSpeed\":\"较慢\",\"staAvoidNum\":\"1.0\",\"staCareer\":\"辅助\",\"staCost\":\"10.0\",\"staDefence\":\"60.0\",\"staFaction\":\"莱茵生命实验室\",\"staHealth\":\"495.0\",\"staId\":45,\"staName\":\"麦哲伦\",\"staRarity\":\"6.0\",\"staRedeploySpeed\":\"慢\",\"staSex\":\"女\",\"staSpellResistance\":\"15.0\"}","errorcode":0,"errormsg":"查询成功！"}
+2019-12-18 23:40:09  [ http-nio-8080-exec-1:21224 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:40:09  [ http-nio-8080-exec-1:21421 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:40:09  [ http-nio-8080-exec-1:21421 ] - [ INFO ]  JsonObj{errorcode=0, errormsg='查询成功！', data={"staAttackPower":"211.0","staAttackSpeed":"较慢","staAvoidNum":"1.0","staCareer":"辅助","staCost":"10.0","staDefence":"60.0","staFaction":"莱茵生命实验室","staHealth":"495.0","staId":45,"staName":"麦哲伦","staRarity":"6.0","staRedeploySpeed":"慢","staSex":"女","staSpellResistance":"15.0"}}
+2019-12-18 23:40:09  [ http-nio-8080-exec-1:21422 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 23:40:09  [ http-nio-8080-exec-1:21422 ] - [ INFO ]  =====ReData数据:{"data":"{\"staAttackPower\":\"211.0\",\"staAttackSpeed\":\"较慢\",\"staAvoidNum\":\"1.0\",\"staCareer\":\"辅助\",\"staCost\":\"10.0\",\"staDefence\":\"60.0\",\"staFaction\":\"莱茵生命实验室\",\"staHealth\":\"495.0\",\"staId\":45,\"staName\":\"麦哲伦\",\"staRarity\":\"6.0\",\"staRedeploySpeed\":\"慢\",\"staSex\":\"女\",\"staSpellResistance\":\"15.0\"}","errorcode":0,"errormsg":"查询成功！"}
+2019-12-18 23:40:58  [ http-nio-8080-exec-2:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 23:40:58  [ http-nio-8080-exec-2:3 ] - [ INFO ]  =====service层=====
+2019-12-18 23:40:58  [ http-nio-8080-exec-2:4 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:40:59  [ http-nio-8080-exec-2:903 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:40:59  [ http-nio-8080-exec-2:1047 ] - [ INFO ]  JsonObj{errorcode=0, errormsg='查询成功！', data={"staAttackPower":"211.0","staAttackSpeed":"较慢","staAvoidNum":"1.0","staCareer":"辅助","staCost":"10.0","staDefence":"60.0","staFaction":"莱茵生命实验室","staHealth":"495.0","staId":45,"staName":"麦哲伦","staRarity":"6.0","staRedeploySpeed":"慢","staSex":"女","staSpellResistance":"15.0"}}
+2019-12-18 23:40:59  [ http-nio-8080-exec-2:1047 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 23:40:59  [ http-nio-8080-exec-2:1047 ] - [ INFO ]  =====ReData数据:{"data":"{\"staAttackPower\":\"211.0\",\"staAttackSpeed\":\"较慢\",\"staAvoidNum\":\"1.0\",\"staCareer\":\"辅助\",\"staCost\":\"10.0\",\"staDefence\":\"60.0\",\"staFaction\":\"莱茵生命实验室\",\"staHealth\":\"495.0\",\"staId\":45,\"staName\":\"麦哲伦\",\"staRarity\":\"6.0\",\"staRedeploySpeed\":\"慢\",\"staSex\":\"女\",\"staSpellResistance\":\"15.0\"}","errorcode":0,"errormsg":"查询成功！"}
+2019-12-18 23:41:03  [ http-nio-8080-exec-8:4469 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 23:41:03  [ http-nio-8080-exec-8:4641 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 23:41:03  [ http-nio-8080-exec-8:4642 ] - [ INFO ]  JsonObj{errorcode=0, errormsg='查询成功！', data={"staAttackPower":"211.0","staAttackSpeed":"较慢","staAvoidNum":"1.0","staCareer":"辅助","staCost":"10.0","staDefence":"60.0","staFaction":"莱茵生命实验室","staHealth":"495.0","staId":45,"staName":"麦哲伦","staRarity":"6.0","staRedeploySpeed":"慢","staSex":"女","staSpellResistance":"15.0"}}
+2019-12-18 23:41:03  [ http-nio-8080-exec-8:4642 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 23:41:03  [ http-nio-8080-exec-8:4642 ] - [ INFO ]  =====ReData数据:{"data":"{\"staAttackPower\":\"211.0\",\"staAttackSpeed\":\"较慢\",\"staAvoidNum\":\"1.0\",\"staCareer\":\"辅助\",\"staCost\":\"10.0\",\"staDefence\":\"60.0\",\"staFaction\":\"莱茵生命实验室\",\"staHealth\":\"495.0\",\"staId\":45,\"staName\":\"麦哲伦\",\"staRarity\":\"6.0\",\"staRedeploySpeed\":\"慢\",\"staSex\":\"女\",\"staSpellResistance\":\"15.0\"}","errorcode":0,"errormsg":"查询成功！"}

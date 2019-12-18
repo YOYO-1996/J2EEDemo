@@ -1,6 +1,8 @@
 package utils;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -21,9 +23,14 @@ public class EncodingFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
         // 设置字符编码链锁
+        HttpServletRequest hsr = (HttpServletRequest)request;
         request.setCharacterEncoding(this.encoding);
         response.setCharacterEncoding(this.encoding);
-        response.setContentType("application/json");
+        System.out.println(hsr.getMethod());
+        if(hsr.getMethod().equals("POST")){
+
+            response.setContentType("application/json");
+        }
         chain.doFilter(request, response);
 
     }

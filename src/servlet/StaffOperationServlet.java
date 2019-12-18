@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description:
@@ -135,8 +136,8 @@ public class StaffOperationServlet extends HttpServlet {
             Staff staff = sos.queryStaffInfo(45);
             reData.setErrorcode(0000);
             reData.setErrormsg("查询成功！");
-            logger.info(staff);
-            reData.getData().add(staff);
+            reData.setData(JSONUtil.beanToJson(staff));
+            logger.info(reData);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
             reData.setErrorcode(0001);

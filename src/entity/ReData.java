@@ -7,10 +7,10 @@ import java.util.List;
  * @author: Tong
  * @date: 2019-12-16 20:10
  */
-public class ReData {
+public class ReData <T>{
     public int errorcode;
     public String errormsg;
-    public List<Object> data;
+    public String data;
 
     public int getErrorcode() {
         return errorcode;
@@ -28,11 +28,11 @@ public class ReData {
         this.errormsg = errormsg;
     }
 
-    public List getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(List data) {
+    public void setData(String data) {
         this.data = data;
     }
 
