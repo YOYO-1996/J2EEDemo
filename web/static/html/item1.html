@@ -41,5 +41,18 @@
     </table>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script type="application/javascript">
+        $(function () {
+            $.ajax({
+                url: '/J2eeS/Staff/queryStaffInfo',
+                data: {},
+                type: 'post',
+                dataType: 'json',
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+    </script>
 </body>
 </html>

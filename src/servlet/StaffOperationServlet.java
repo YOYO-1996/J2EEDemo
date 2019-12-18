@@ -9,6 +9,7 @@ import utils.JSONUtil;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,14 +19,24 @@ import java.util.ArrayList;
  * @author: Tong
  * @date: 2019-12-16 20:00
  */
-public class StaffOperationiServlet extends HttpServlet {
-    Logger logger = Logger.getLogger(StaffOperationiServlet.class);
+public class StaffOperationServlet extends HttpServlet {
+    Logger logger = Logger.getLogger(StaffOperationServlet.class);
     StaffOperationService sos = new StaffOperationService();
 
     @Override
     public void service(ServletRequest req, ServletResponse res) {
-        String url = req.getParameter("url");
-        logger.info(url);
+        HttpServletRequest hsr = (HttpServletRequest)req;
+        String url = hsr.getPathInfo().substring(1);
+
+//        logger.info(hsr.getContextPath()
+//                +"\n"+hsr.getPathInfo()
+//                +"\n"+hsr.getMethod()
+//                +"\n"+hsr.getQueryString()
+//                +"\n"+hsr.getServletPath()
+//                +"\n"+hsr.getRemoteAddr()
+//                +"\n"+hsr.getRemoteUser()
+//                +"\n"+hsr.getPathTranslated()
+//                +"\n"+hsr.getRequestURI());
         ReData reData = new ReData();
         try{
             //处理请求
@@ -50,11 +61,12 @@ public class StaffOperationiServlet extends HttpServlet {
                 queryStaffList(req, res,reData);
                 logger.info("=====查询所有干员数据（分页）=====END=====");
             }
-            String responseData = JSONUtil.beanToJson(reData); 
+            String responseData = JSONUtil.beanToJson(reData);
             logger.info("=====ReData数据:" + responseData);
             res.getWriter().print(responseData);
         }catch (IOException e){
             e.printStackTrace();
+            logger.info(e.getStackTrace());
             reData.setErrorcode(0001);
             reData.setErrormsg("系统异常");
         }finally {
@@ -120,9 +132,10 @@ public class StaffOperationiServlet extends HttpServlet {
 
     private void queryStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
         try {
-            Staff staff = sos.queryStaffInfo(1);
+            Staff staff = sos.queryStaffInfo(45);
             reData.setErrorcode(0000);
             reData.setErrormsg("查询成功！");
+            logger.info(staff);
             reData.getData().add(staff);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();

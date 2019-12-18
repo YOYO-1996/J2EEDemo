@@ -1,2 +1,444 @@
-2019-12-14 14:28:26  [ http-nio-8080-exec-5:0 ] - [ INFO ]  adfa
-2019-12-14 14:28:26  [ http-nio-8080-exec-5:3 ] - [ INFO ]  sfa
+
+2019-12-18 20:30:43  [ http-nio-8080-exec-7:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:30:43  [ http-nio-8080-exec-7:12 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:30:44  [ http-nio-8080-exec-7:191 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:35:14  [ http-nio-8080-exec-1:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:35:14  [ http-nio-8080-exec-1:4 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:35:14  [ http-nio-8080-exec-1:13 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:35:14  [ http-nio-8080-exec-1:204 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:39:40  [ http-nio-8080-exec-8:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:39:40  [ http-nio-8080-exec-8:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:39:40  [ http-nio-8080-exec-8:12 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:39:40  [ http-nio-8080-exec-8:193 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:43:47  [ http-nio-8080-exec-9:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:43:47  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:43:47  [ http-nio-8080-exec-9:11 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:43:47  [ http-nio-8080-exec-9:198 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:43:53  [ http-nio-8080-exec-4:5890 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:43:53  [ http-nio-8080-exec-4:5891 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:43:53  [ http-nio-8080-exec-4:5892 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:43:53  [ http-nio-8080-exec-4:5892 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:53:03  [ http-nio-8080-exec-6:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:53:03  [ http-nio-8080-exec-6:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:53:03  [ http-nio-8080-exec-6:12 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:53:04  [ http-nio-8080-exec-6:189 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:53:07  [ http-nio-8080-exec-1:3514 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:53:07  [ http-nio-8080-exec-1:3516 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:53:07  [ http-nio-8080-exec-1:3517 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:53:07  [ http-nio-8080-exec-1:3517 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:53:11  [ http-nio-8080-exec-8:7109 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:53:11  [ http-nio-8080-exec-8:7109 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:53:11  [ http-nio-8080-exec-8:7110 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:53:11  [ http-nio-8080-exec-8:7110 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:56:36  [ http-nio-8080-exec-6:212517 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:56:36  [ http-nio-8080-exec-6:212517 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:56:36  [ http-nio-8080-exec-6:212518 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:56:36  [ http-nio-8080-exec-6:212518 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 20:59:09  [ http-nio-8080-exec-6:365179 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 20:59:09  [ http-nio-8080-exec-6:365179 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 20:59:09  [ http-nio-8080-exec-6:365179 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 20:59:09  [ http-nio-8080-exec-6:365179 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:02:09  [ http-nio-8080-exec-9:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:02:09  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:02:09  [ http-nio-8080-exec-9:12 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:02:09  [ http-nio-8080-exec-9:193 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:03:09  [ http-nio-8080-exec-5:60222 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:03:09  [ http-nio-8080-exec-5:60223 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:03:09  [ http-nio-8080-exec-5:60224 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:03:09  [ http-nio-8080-exec-5:60224 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:03:11  [ http-nio-8080-exec-6:62095 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:03:11  [ http-nio-8080-exec-6:62095 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:03:11  [ http-nio-8080-exec-6:62096 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:03:11  [ http-nio-8080-exec-6:62096 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:03:15  [ http-nio-8080-exec-4:66091 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:03:15  [ http-nio-8080-exec-4:66091 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:03:15  [ http-nio-8080-exec-4:66092 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:03:15  [ http-nio-8080-exec-4:66092 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:06:29  [ http-nio-8080-exec-6:260174 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:06:29  [ http-nio-8080-exec-6:260174 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:06:29  [ http-nio-8080-exec-6:260175 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:06:29  [ http-nio-8080-exec-6:260175 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:06:48  [ http-nio-8080-exec-7:278733 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:06:48  [ http-nio-8080-exec-7:278734 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:06:48  [ http-nio-8080-exec-7:278734 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:06:48  [ http-nio-8080-exec-7:278734 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:06:50  [ http-nio-8080-exec-8:280733 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:06:50  [ http-nio-8080-exec-8:280733 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:06:50  [ http-nio-8080-exec-8:280734 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:06:50  [ http-nio-8080-exec-8:280734 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:06:53  [ http-nio-8080-exec-5:284151 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:06:53  [ http-nio-8080-exec-5:284151 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:06:53  [ http-nio-8080-exec-5:284152 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:06:53  [ http-nio-8080-exec-5:284152 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:07:55  [ http-nio-8080-exec-7:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:07:55  [ http-nio-8080-exec-7:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:07:55  [ http-nio-8080-exec-7:11 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:07:55  [ http-nio-8080-exec-7:199 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:08:33  [ http-nio-8080-exec-10:38219 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:08:33  [ http-nio-8080-exec-10:38220 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:08:33  [ http-nio-8080-exec-10:38221 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:08:33  [ http-nio-8080-exec-10:38221 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:11:09  [ http-nio-8080-exec-8:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:11:09  [ http-nio-8080-exec-8:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:11:09  [ http-nio-8080-exec-8:14 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:11:09  [ http-nio-8080-exec-8:208 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:11:14  [ http-nio-8080-exec-2:4963 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:11:14  [ http-nio-8080-exec-2:4965 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:11:14  [ http-nio-8080-exec-2:4966 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:11:14  [ http-nio-8080-exec-2:4966 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:13:16  [ http-nio-8080-exec-8:127348 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:13:16  [ http-nio-8080-exec-8:127349 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:13:16  [ http-nio-8080-exec-8:127350 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:13:16  [ http-nio-8080-exec-8:127350 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:14:57  [ http-nio-8080-exec-5:227821 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:14:57  [ http-nio-8080-exec-5:227821 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:14:57  [ http-nio-8080-exec-5:227821 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:14:57  [ http-nio-8080-exec-5:227822 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:16:16  [ http-nio-8080-exec-2:306657 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:16:16  [ http-nio-8080-exec-2:306657 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:16:16  [ http-nio-8080-exec-2:306658 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:16:16  [ http-nio-8080-exec-2:306658 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:19:28  [ http-nio-8080-exec-2:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:19:28  [ http-nio-8080-exec-2:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:19:28  [ http-nio-8080-exec-2:13 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:19:28  [ http-nio-8080-exec-2:206 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:19:53  [ http-nio-8080-exec-3:25278 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:19:53  [ http-nio-8080-exec-3:25279 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:19:53  [ http-nio-8080-exec-3:25280 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:19:53  [ http-nio-8080-exec-3:25281 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:24:28  [ http-nio-8080-exec-6:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:24:28  [ http-nio-8080-exec-6:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:24:28  [ http-nio-8080-exec-6:13 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:24:28  [ http-nio-8080-exec-6:208 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:29:15  [ http-nio-8080-exec-3:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:29:15  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:29:15  [ http-nio-8080-exec-3:12 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:29:16  [ http-nio-8080-exec-3:197 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:30:27  [ http-nio-8080-exec-9:71374 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:30:27  [ http-nio-8080-exec-9:71375 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:30:27  [ http-nio-8080-exec-9:71376 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 21:30:27  [ http-nio-8080-exec-9:71376 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 21:36:07  [ http-nio-8080-exec-1:0 ] - [ INFO ]  /J2eeS
+/queryStaffInfo
+POST
+null
+/Staff
+0:0:0:0:0:0:0:1
+null
+F:\WK\J2eeS\out\artifacts\J2eeS_war_exploded\queryStaffInfo
+/J2eeS/Staff/queryStaffInfo
+2019-12-18 21:36:07  [ http-nio-8080-exec-1:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:45:04  [ http-nio-8080-exec-7:0 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:45:59  [ http-nio-8080-exec-5:1 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:47:51  [ http-nio-8080-exec-7:0 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:52:36  [ http-nio-8080-exec-9:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 21:52:36  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====service层=====
+2019-12-18 21:52:36  [ http-nio-8080-exec-9:4 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:54:35  [ http-nio-8080-exec-4:119396 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:54:36  [ http-nio-8080-exec-2:120368 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:57:25  [ http-nio-8080-exec-5:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 21:57:25  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====service层=====
+2019-12-18 21:57:25  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:57:25  [ http-nio-8080-exec-5:3 ] - [ INFO ]  1
+2019-12-18 21:58:41  [ http-nio-8080-exec-5:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 21:58:41  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====service层=====
+2019-12-18 21:58:41  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 21:58:41  [ http-nio-8080-exec-5:4 ] - [ INFO ]  1
+2019-12-18 21:58:41  [ http-nio-8080-exec-5:4 ] - [ INFO ]  3
+2019-12-18 21:58:41  [ http-nio-8080-exec-5:4 ] - [ INFO ]  4
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:3 ] - [ INFO ]  1
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:4 ] - [ INFO ]  3
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:4 ] - [ INFO ]  4
+2019-12-18 22:01:08  [ http-nio-8080-exec-4:12 ] - [ INFO ]  url
+2019-12-18 22:07:47  [ http-nio-8080-exec-9:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:07:47  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:07:47  [ http-nio-8080-exec-9:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:07:47  [ http-nio-8080-exec-9:3 ] - [ INFO ]  3
+2019-12-18 22:07:47  [ http-nio-8080-exec-9:30 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:07:47  [ http-nio-8080-exec-9:214 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:08:37  [ http-nio-8080-exec-5:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:08:37  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:08:37  [ http-nio-8080-exec-5:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:08:37  [ http-nio-8080-exec-5:3 ] - [ INFO ]  3
+2019-12-18 22:08:38  [ http-nio-8080-exec-5:915 ] - [ INFO ]  5
+2019-12-18 22:08:38  [ http-nio-8080-exec-5:938 ] - [ INFO ]  6
+2019-12-18 22:08:38  [ http-nio-8080-exec-5:973 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:08:38  [ http-nio-8080-exec-5:1137 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:12:44  [ http-nio-8080-exec-4:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:12:44  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:12:44  [ http-nio-8080-exec-4:4 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:12:45  [ http-nio-8080-exec-4:900 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:12:45  [ http-nio-8080-exec-4:1063 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:13:49  [ http-nio-8080-exec-4:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:13:49  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:13:49  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:13:50  [ http-nio-8080-exec-4:901 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:13:50  [ http-nio-8080-exec-4:1059 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:13:51  [ http-nio-8080-exec-5:1285 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:13:51  [ http-nio-8080-exec-5:1467 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:13:51  [ http-nio-8080-exec-5:1468 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:21:50  [ http-nio-8080-exec-3:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:21:50  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:21:50  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:21:51  [ http-nio-8080-exec-3:886 ] - [ INFO ]  Staff{staId=0, staName='null', staSex='null', staHealth='null', staAttackPower='null', staCost='null', staDefence='null', staAvoidNum='null', staSpellResistance='null', staRarity='null', staRedeploySpeed='null', staAttackSpeed='null', staCareer='null', staFaction='null'}
+2019-12-18 22:21:51  [ http-nio-8080-exec-3:893 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:21:51  [ http-nio-8080-exec-3:1053 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:23:35  [ http-nio-8080-exec-10:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:23:35  [ http-nio-8080-exec-10:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:23:35  [ http-nio-8080-exec-10:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:23:36  [ http-nio-8080-exec-10:897 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:23:36  [ http-nio-8080-exec-10:1055 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:24:44  [ http-nio-8080-exec-3:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:24:44  [ http-nio-8080-exec-3:2 ] - [ INFO ]  =====service层=====
+2019-12-18 22:24:44  [ http-nio-8080-exec-3:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:24:45  [ http-nio-8080-exec-3:889 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:24:45  [ http-nio-8080-exec-3:1046 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:29:06  [ http-nio-8080-exec-7:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:29:06  [ http-nio-8080-exec-7:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:29:06  [ http-nio-8080-exec-7:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:29:07  [ http-nio-8080-exec-7:933 ] - [ INFO ]  =====查询单条干员数据=====END=====
+2019-12-18 22:29:07  [ http-nio-8080-exec-7:1091 ] - [ INFO ]  =====ReData数据:{"errorcode":1,"errormsg":"系统异常！"}
+2019-12-18 22:30:25  [ http-nio-8080-exec-4:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:30:25  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:30:25  [ http-nio-8080-exec-4:3 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:30:26  [ http-nio-8080-exec-4:906 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 22:30:36  [ http-nio-8080-exec-10:10919 ] - [ INFO ]  =====查询单条干员数据=====BEGIN=====
+2019-12-18 22:30:37  [ http-nio-8080-exec-10:11095 ] - [ INFO ]  Staff{staId=45, staName='麦哲伦', staSex='女', staHealth='495.0', staAttackPower='211.0', staCost='10.0', staDefence='60.0', staAvoidNum='1.0', staSpellResistance='15.0', staRarity='6.0', staRedeploySpeed='慢', staAttackSpeed='较慢', staCareer='辅助', staFaction='莱茵生命实验室'}
+2019-12-18 22:34:09  [ http-nio-8080-exec-6:0 ] - [ INFO ]  =====dao层=====
+2019-12-18 22:34:09  [ http-nio-8080-exec-6:3 ] - [ INFO ]  =====service层=====
+2019-12-18 22:34:09  [ http-nio-8080-exec-6:205 ] - [ INFO ]  =====ReData数据:{"errorcode":0}
