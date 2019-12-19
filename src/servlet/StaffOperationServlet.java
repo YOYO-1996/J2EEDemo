@@ -136,7 +136,9 @@ public class StaffOperationServlet extends HttpServlet {
             Staff staff = sos.queryStaffInfo(45);
             reData.setErrorcode(0000);
             reData.setErrormsg("查询成功！");
-            reData.setData(JSONUtil.beanToJson(staff));
+            ArrayList<Staff> list = new ArrayList<>();
+            list.add(staff);
+            reData.setData(list);
             logger.info(reData);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();

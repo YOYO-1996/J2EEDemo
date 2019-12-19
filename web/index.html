@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>明日方舟</title>
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="shortcut icon" href="static/images/标签栏图标.jpg">
     <style>
         .contentBody {
             width: 80%;
@@ -15,14 +16,23 @@
 
         .iframe {
             width: 100%;
-            height: 100%;
+            height: 500px;
+            background: rgba(255,255,255,0);
+        }
+        body{
+            background-image: url(static/images/head.jpg);
+            background-size:100%;
+            background-position:0 56px;
+            background-repeat:no-repeat;
+            background-color:rgba(0,0,0,0.8);
+
         }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">明日方舟数据库</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,12 +47,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="static/html/item1.html" target="iframe">干员列表</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="static/html/item2.html" target="iframe">测试</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Item4
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">option1</a>
                             <a class="dropdown-item" href="#">option2</a>
                             <div class="dropdown-divider"></div>
@@ -58,15 +71,27 @@
         </nav>
 
     </div>
+    <div class="bg_body">
     <div class="contentBody">
         <iframe src="static/html/home.html" name="iframe" class="iframe" frameborder="0" scrolling="no">
 
         </iframe>
     </div>
+    </div>
 
     <script src="static/js/jquery.min.js" ></script>
     <script src="static/js/bootstrap.min.js"></script>
+    <script>
+        var liArr = $('.navbar-nav > li');
+        liArr.each(function(index,e){
+            var This = $(this)
+            This.click(function(){
+                var Li = $('.navbar-nav').find('li.active')[0];
+                $(Li).removeClass("active");
+                This.addClass("active")
+            })
+        })
+    </script>
 
 </body>
-
 </html>

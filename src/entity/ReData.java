@@ -10,7 +10,7 @@ import java.util.List;
 public class ReData <T>{
     public int errorcode;
     public String errormsg;
-    public String data;
+    public Object data;
 
     public int getErrorcode() {
         return errorcode;
@@ -28,11 +28,11 @@ public class ReData <T>{
         this.errormsg = errormsg;
     }
 
-    public String getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

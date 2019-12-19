@@ -1,0 +1,13 @@
+.bg-opcity {
+    background-color: rgba(0, 0, 0, 0.18);
+}
+
+.theme-dark {
+    color: #fff !important;
+    background: #343a40 !important;
+}
+
+.theme-light {
+    color: #343a40 !important;
+    background: #fff !important;
+}

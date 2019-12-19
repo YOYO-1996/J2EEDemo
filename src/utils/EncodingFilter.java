@@ -26,9 +26,7 @@ public class EncodingFilter implements Filter {
         HttpServletRequest hsr = (HttpServletRequest)request;
         request.setCharacterEncoding(this.encoding);
         response.setCharacterEncoding(this.encoding);
-        System.out.println(hsr.getMethod());
         if(hsr.getMethod().equals("POST")){
-
             response.setContentType("application/json");
         }
         chain.doFilter(request, response);
