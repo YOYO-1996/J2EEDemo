@@ -122,31 +122,34 @@ public class StaffOperationDao {
     public ArrayList<Staff> queryStaffList() throws ClassNotFoundException, SQLException, IOException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "SELECT DISTINCT" +
-                "sta_id," +
-                "sta_name," +
-                "sta_sex," +
-                "sta_health," +
-                "sta_attack_Power," +
-                "sta_cost," +
-                "sta_defence," +
-                "sta_avoid_Num," +
-                "sta_spell_Resistance," +
-                "sta_rarity," +
-                "sta_Redeploy_Speed," +
-                "sta_attack_Speed," +
-                "sta_career," +
-                "sta_faction" +
-                "FROM" +
-                "staff";
+        String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_rarity desc limit ?,?";
         PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, 0);
+        ps.setInt(2,10);
 
-        ResultSet rs = ps.executeQuery(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Staff> staffList = new ArrayList<>();
 
         while (rs.next()) {
+            Staff staff = new Staff();
+            staff.setStaId((long) rs.getInt("sta_id"));
+            staff.setStaName(rs.getString("sta_name"));
+            staff.setStaSex(rs.getString("sta_sex"));
+            staff.setStaHealth(rs.getString("sta_health"));
+            staff.setStaAttackPower(rs.getString("sta_attack_Power"));
+            staff.setStaCost(rs.getString("sta_cost"));
+            staff.setStaDefence(rs.getString("sta_defence"));
+            staff.setStaAvoidNum(rs.getString("sta_avoid_Num"));
+            staff.setStaSpellResistance(rs.getString("sta_spell_Resistance"));
+            staff.setStaRarity(rs.getString("sta_rarity"));
+            staff.setStaRedeploySpeed(rs.getString("sta_Redeploy_Speed"));
+            staff.setStaAttackSpeed(rs.getString("sta_attack_Speed"));
+            staff.setStaCareer(rs.getString("sta_career"));
+            staff.setStaFaction(rs.getString("sta_faction"));
+            staffList.add(staff);
         }
         ps.close();
         conn.close();
-        return new ArrayList<Staff>();
+        return staffList;
     }
 }

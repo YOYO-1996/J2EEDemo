@@ -6,14 +6,34 @@
     <title>Document</title>
     <link rel="shortcut icon" href="/static/images/标签栏图标.jpg">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link href="../css/index.css" rel="stylesheet" >
+    <link href="../css/index.css" rel="stylesheet">
     <style>
         .table {
             text-align: center;
         }
+
+        .fl_rirht {
+            float: right;
+        }
     </style>
 </head>
-<body class="bg-opcity">
+<body>
+<form class="form-inline">
+    <div class="row">
+        <div class="form-group col-lg-4 inline">
+            <label for="">Password</label>
+            <input type="password" class="form-control" aria-describedby="passwordHelpInline">
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="">Password</label>
+            <input type="password"  class="form-control" aria-describedby="passwordHelpInline">
+        </div>
+        <div class="form-group col-lg-4">
+            <button class="btn btn-primary fl_rirht">查询</button>
+        </div>
+    </div>
+
+</form>
 <table class="table table-sm table-striped table-hover table-bordered table-dark">
     <thead>
     <tr>
@@ -32,9 +52,16 @@
         <th>再部署速度</th>
     </tr>
     </thead>
+
     <tbody>
     </tbody>
 </table>
+<div class="text-center">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
 <div class="alert alert-danger" id="tip1" role="alert">
     <span class="errorMsg">A simple danger alert—check it out!</span>
     <button type="button" class="close">
@@ -47,19 +74,22 @@
 <script type="application/javascript">
     $(function () {
         Alert.close();
-        $('.close').click(function (){
+
+        $('.close').click(function () {
             Alert.close();
         });
         $.ajax({
-            url: '/J2eeS/Staff/queryStaffInfo',
+            url: '/Staff/queryStaffList',
             data: {},
             type: 'post',
             dataType: 'json',
             success: function (res) {
                 console.log(res);
                 if (res.errorcode == 1) {
+                    $('.spinner-border').hide();
                     Alert.show(res.errormsg)
                 } else if (res.errorcode == 0) {
+                    $('.spinner-border').hide();
                     // Alert.show(res.errormsg)
                     var data = res.data;
                     var tbodty = $('tbody');
@@ -79,22 +109,21 @@
                             .append('<td>' + data[i].staAttackSpeed + '</td>')
                             .append('<td>' + data[i].staAvoidNum + '</td>')
                             .append('<td>' + data[i].staRedeploySpeed + '</td>');
+                        tbodty.append(tr);
                     }
-                    tbodty.append(tr);
-
                 }
             }
         })
     })
 
     const Alert = {
-       /* show: function (msg) {
-            $(".errorMsg").html(msg);
-            $(".alert").show();
-        },
-        close: function () {
-            $(".alert").hide();
-        }*/
+        /* show: function (msg) {
+             $(".errorMsg").html(msg);
+             $(".alert").show();
+         },
+         close: function () {
+             $(".alert").hide();
+         }*/
     }
     Alert.show = function (msg) {
         $(".errorMsg").html(msg);

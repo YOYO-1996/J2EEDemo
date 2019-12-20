@@ -151,6 +151,10 @@ public class StaffOperationServlet extends HttpServlet {
     private void queryStaffList(ServletRequest req, ServletResponse res, ReData reData) {
         try {
             ArrayList<Staff> staff = sos.queryStaffList();
+            reData.setErrorcode(0000);
+            reData.setErrormsg("查询成功！");
+            reData.setData(staff);
+            logger.info(reData);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
             reData.setErrorcode(0001);
