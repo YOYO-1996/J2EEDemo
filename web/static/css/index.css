@@ -11,3 +11,32 @@
     color: #343a40 !important;
     background: #fff !important;
 }
+.contentBody {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.iframe {
+    width: 100%;
+    height: 500px;
+    background: rgba(255,255,255,0);
+}
+body{
+    background-image: url(../images/head.jpg);
+    background-size:100%;
+    background-position:0 56px;
+    background-repeat:no-repeat;
+    background-color:rgba(0,0,0,0.8);
+
+}
+.btn-text{
+    color: rgba(255,255,255,.5);
+}
+.btn-text:hover{
+    color: #fff !important;
+    text-decoration: none;
+    /*cursor: pointer;*/
+}
+.btn-text:visited,.btn-text:active,.btn-text:link,.btn-text:focus{
+    text-decoration: none !important;
+}

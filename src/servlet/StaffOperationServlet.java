@@ -96,12 +96,12 @@ public class StaffOperationServlet extends HttpServlet {
             reData.setErrorcode(0001);
             reData.setErrormsg("系统异常！");
         }
-
     }
 
     private void removeStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
         try {
-            sos.removeStaffInfo(1);
+            int staId = Integer.parseInt(req.getParameter("staId"));
+            sos.removeStaffInfo(staId);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
             reData.setErrorcode(0001);
@@ -150,7 +150,10 @@ public class StaffOperationServlet extends HttpServlet {
 
     private void queryStaffList(ServletRequest req, ServletResponse res, ReData reData) {
         try {
-            ArrayList<Staff> staff = sos.queryStaffList();
+
+            int startIndex = Integer.parseInt(req.getParameter("startIndex"));
+            int queryCount = Integer.parseInt(req.getParameter("queryCount"));
+            ArrayList<Staff> staff = sos.queryStaffList(startIndex,queryCount);
             reData.setErrorcode(0000);
             reData.setErrormsg("查询成功！");
             reData.setData(staff);

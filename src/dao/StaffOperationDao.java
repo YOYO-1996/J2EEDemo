@@ -119,13 +119,13 @@ public class StaffOperationDao {
     }
 
     //查询所有干员信息
-    public ArrayList<Staff> queryStaffList() throws ClassNotFoundException, SQLException, IOException {
+    public ArrayList<Staff> queryStaffList(int startIndex,int queryCount) throws ClassNotFoundException, SQLException, IOException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection(url, user, password);
         String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_rarity desc limit ?,?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, 0);
-        ps.setInt(2,10);
+        ps.setInt(1, startIndex);//查询起始位
+        ps.setInt(2,queryCount);//每次查询的数量
 
         ResultSet rs = ps.executeQuery();
         ArrayList<Staff> staffList = new ArrayList<>();
