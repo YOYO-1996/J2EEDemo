@@ -6,12 +6,8 @@
     <title>干员信息</title>
     <link rel="shortcut icon" href="/static/images/标签栏图标.jpg">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link href="../css/index.css" rel="stylesheet">
-    <style>
-        .table {
-            text-align: center;
-        }
-    </style>
+    <link href="../css/public.css" rel="stylesheet">
+    <link href="../css/staffList.css" rel="stylesheet">
 </head>
 <body>
 <div class="header">
@@ -24,9 +20,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="../../index.html">首页<span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="staffList.html">干员列表</a>
                 </li>
@@ -34,7 +27,7 @@
                     <a class="nav-link" href="publicGet.html">公开招募</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="staffList.html">干员对比</a>
+                    <a class="nav-link" href="staffComp.html">干员对比</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="test.html">模拟抽卡</a>
@@ -47,45 +40,54 @@
 <div class=contentBody>
     <form>
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">干员名称：</label>
+            <label for="staffName" class="col-sm-2 col-form-label text-light">干员名称：</label>
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="inputEmail3">
-        </div>
+                <input type="text" class="form-control" id="staffName">
+            </div>
 
-            <label class="col-sm-2 col-form-label" for="inlineFormCustomSelectPref1">干员星级：</label>
-            <select class="custom-select col-sm-3" id="inlineFormCustomSelectPref1">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <label class="col-sm-2 col-form-label text-light">干员星级：</label>
+            <div class="form-check col-sm-3 col-form-label">
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox6" value="6"> 6星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox5" value="5"> 5星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox4" value="4"> 4星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox3" value="3"> 3星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox2" value="2"> 2星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox1" value="1"> 1星 </label>
+            </div>
 
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary">查询干员</button>
-        </div>
+                <button class="btn btn-primary" id="queryStaffBtn" onclick="queryStaffList()">查询干员</button>
+            </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="inlineFormCustomSelectPref2">干员职业：</label>
+            <label class="col-sm-2 col-form-label text-light" for="inlineFormCustomSelectPref2">干员职业：</label>
             <select class="custom-select col-sm-3" id="inlineFormCustomSelectPref2">
-                <option selected>请选择...</option>
+                <option selected>全部</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
 
-            <label class="col-sm-2 col-form-label" for="inlineFormCustomSelectPref3">干员派别：</label>
+            <label class="col-sm-2 col-form-label text-light" for="inlineFormCustomSelectPref3">干员派别：</label>
             <select class="custom-select col-sm-3" id="inlineFormCustomSelectPref3">
-                <option selected>请选择...</option>
+                <option selected>全部</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
 
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-warning">重置选择</button>
+                <button type="reset" class="btn btn-warning">重置选择</button>
             </div>
         </div>
     </form>
+<!--    表格-->
     <table class="table table-sm table-striped table-hover table-bordered table-dark">
         <thead>
         <tr>
@@ -108,97 +110,38 @@
         <tbody>
         </tbody>
     </table>
+<!--    表格END-->
+    <!--    加载-->
     <div class="text-center">
         <div class="spinner-border text-primary" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-
-    <div class="alert alert-danger" id="tip1" role="alert">
-        <span class="errorMsg">A simple danger alert—check it out!</span>
-        <button type="button" class="close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <!--    加载END-->
+    <!--    警告框-->
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
     </div>
+    <!--    警告框END-->
+    <!--    分页-->
     <nav aria-label="Page navigation example ">
         <ul class="pagination justify-content-end ">
             <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
             </li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" href="#">下一页</a>
             </li>
         </ul>
     </nav>
+    <!--分页END-->
 </div>
+
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script type="application/javascript">
-    $(function () {
-        Alert.close();
-
-        $('.close').click(function () {
-            Alert.close();
-        });
-        $.ajax({
-            url: '/Staff/queryStaffList',
-            data: {},
-            type: 'post',
-            dataType: 'json',
-            success: function (res) {
-                console.log(res);
-                if (res.errorcode == 1) {
-                    $('.spinner-border').hide();
-                    Alert.show(res.errormsg)
-                } else if (res.errorcode == 0) {
-                    $('.spinner-border').hide();
-                    // Alert.show(res.errormsg)
-                    var data = res.data;
-                    var tbodty = $('tbody');
-                    for (var i = 0; i < data.length; i++) {
-                        var tr = $('<tr></tr>');
-                        tr.attr('staId', data[i].staId);
-                        tr.append('<td>' + data[i].staName + '</td>')
-                            .append('<td>' + data[i].staSex + '</td>')
-                            .append('<td>' + data[i].staRarity + '</td>')
-                            .append('<td>' + data[i].staCareer + '</td>')
-                            .append('<td>' + data[i].staFaction + '</td>')
-                            .append('<td>' + data[i].staCost + '</td>')
-                            .append('<td>' + data[i].staHealth + '</td>')
-                            .append('<td>' + data[i].staAttackPower + '</td>')
-                            .append('<td>' + data[i].staDefence + '</td>')
-                            .append('<td>' + data[i].staSpellResistance + '</td>')
-                            .append('<td>' + data[i].staAttackSpeed + '</td>')
-                            .append('<td>' + data[i].staAvoidNum + '</td>')
-                            .append('<td>' + data[i].staRedeploySpeed + '</td>');
-                        tbodty.append(tr);
-                    }
-                }
-            }
-        })
-    })
-
-    const Alert = {
-        /* show: function (msg) {
-             $(".errorMsg").html(msg);
-             $(".alert").show();
-         },
-         close: function () {
-             $(".alert").hide();
-         }*/
-    }
-    Alert.show = function (msg) {
-        $(".errorMsg").html(msg);
-        $(".alert").show();
-    };
-    Alert.close = function () {
-        $(".alert").hide();
-    };
-
-
-</script>
+<script src="../js/staffList.js"></script>
 </body>
 </html>
