@@ -122,7 +122,7 @@ public class StaffOperationDao {
     public ArrayList<Staff> queryStaffList(int startIndex,int queryCount) throws ClassNotFoundException, SQLException, IOException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_rarity desc limit ?,?";
+        String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_id limit ?,?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, startIndex);//查询起始位
         ps.setInt(2,queryCount);//每次查询的数量
@@ -151,5 +151,22 @@ public class StaffOperationDao {
         ps.close();
         conn.close();
         return staffList;
+    }
+
+    public int staffCount() throws ClassNotFoundException, SQLException, IOException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(url, user, password);
+        String sql = "select count(1) staffCount from staff";
+        PreparedStatement ps = conn.prepareStatement(sql);
+
+        ResultSet rs = ps.executeQuery(sql);
+        ArrayList<Staff> staffList = new ArrayList<>();
+        int staffTotal = 0;
+        while (rs.next()) {
+            staffTotal = rs.getInt("staffCount");
+        }
+        ps.close();
+        conn.close();
+        return staffTotal;
     }
 }

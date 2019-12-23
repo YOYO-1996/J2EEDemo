@@ -40,4 +40,7 @@ public class StaffOperationService {
     public ArrayList<Staff> queryStaffList(int startIndex,int queryCount) throws ClassNotFoundException, SQLException, IOException {
         return sod.queryStaffList(startIndex,queryCount);
     }
+    public int staffCount() throws ClassNotFoundException, SQLException, IOException {
+        return sod.staffCount();
+    }
 }

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @description:
@@ -59,7 +58,7 @@ public class StaffOperationServlet extends HttpServlet {
                 logger.info("=====查询单条干员数据=====END=====");
             } else if (url.equals("queryStaffList")) {
                 logger.info("=====查询所有干员数据（分页）=====BEGIN=====");
-                queryStaffList(req, res,reData);
+                reData = queryStaffList(req, res,reData);
                 logger.info("=====查询所有干员数据（分页）=====END=====");
             }
             String responseData = JSONUtil.beanToJson(reData);
@@ -68,8 +67,7 @@ public class StaffOperationServlet extends HttpServlet {
         }catch (IOException e){
             e.printStackTrace();
             logger.info(e.getStackTrace());
-            reData.setErrorcode(0001);
-            reData.setErrormsg("系统异常");
+            reData = ReData.fail();
         }finally {
 
         }
@@ -84,17 +82,14 @@ public class StaffOperationServlet extends HttpServlet {
                 Staff staff = (Staff) JSONUtil.stringToBean(staffInfo, Staff.class);
                 logger.info("转换为JSON对象之后是：" + staff);
                 sos.addStaffInfo(staff);
-                reData.setErrorcode(0000);
-                reData.setErrormsg("新增干员成功");
+                reData = ReData.success();
             } else {
                 logger.error("数据格式有误！");
-                reData.setErrorcode(0001);
-                reData.setErrormsg("数据格式有误！");
+                reData = ReData.fail();
             }
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
-            reData.setErrorcode(0001);
-            reData.setErrormsg("系统异常！");
+            reData = ReData.fail();
         }
     }
 
@@ -104,8 +99,7 @@ public class StaffOperationServlet extends HttpServlet {
             sos.removeStaffInfo(staId);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
-            reData.setErrorcode(0001);
-            reData.setErrormsg("系统异常！");
+            reData = ReData.fail();
         }
     }
 
@@ -117,51 +111,42 @@ public class StaffOperationServlet extends HttpServlet {
                 Staff staff = (Staff) JSONUtil.stringToBean(staffInfo, Staff.class);
                 logger.info("转换为JSON对象之后是：" + staff);
                 sos.addStaffInfo(staff);
-                reData.setErrorcode(0000);
-                reData.setErrormsg("新增干员成功");
+                reData = ReData.success();
             } else {
                 logger.error("数据格式有误！");
-                reData.setErrorcode(0001);
-                reData.setErrormsg("数据格式有误！");
+                reData = ReData.fail();
             }
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
-            reData.setErrorcode(0001);
-            reData.setErrormsg("系统异常！");
+            reData = ReData.fail();
         }
     }
 
     private void queryStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
         try {
             Staff staff = sos.queryStaffInfo(45);
-            reData.setErrorcode(0000);
-            reData.setErrormsg("查询成功！");
             ArrayList<Staff> list = new ArrayList<>();
             list.add(staff);
-            reData.setData(list);
+            reData = ReData.success().addInfo("staffList", list);
             logger.info(reData);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
-            reData.setErrorcode(0001);
-            reData.setErrormsg("系统异常！");
+            reData = ReData.fail();
         }
 
     }
 
-    private void queryStaffList(ServletRequest req, ServletResponse res, ReData reData) {
+    private ReData queryStaffList(ServletRequest req, ServletResponse res, ReData reData) {
         try {
 
-            int startIndex = Integer.parseInt(req.getParameter("startIndex"));
-            int queryCount = Integer.parseInt(req.getParameter("queryCount"));
-            ArrayList<Staff> staff = sos.queryStaffList(startIndex,queryCount);
-            reData.setErrorcode(0000);
-            reData.setErrormsg("查询成功！");
-            reData.setData(staff);
-            logger.info(reData);
+            int startIndex = Integer.parseInt(req.getParameter("page"));
+            int queryCount = Integer.parseInt(req.getParameter("limit"));
+            ArrayList<Staff> staff = sos.queryStaffList((startIndex - 1) * queryCount, queryCount);
+            logger.info(staff);
+            return ReData.success().addInfo("total", sos.staffCount()).addInfo("staffList", staff);
         } catch (ClassNotFoundException | IOException | SQLException e) {
             e.printStackTrace();
-            reData.setErrorcode(0001);
-            reData.setErrormsg("系统异常！");
+            return ReData.fail();
         }
     }
 }

@@ -1,47 +1,69 @@
 package entity;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description:
  * @author: Tong
  * @date: 2019-12-16 20:10
  */
-public class ReData <T>{
-    public int errorcode;
-    public String errormsg;
-    public Object data;
+public class ReData{
+    
+    private int code;
+    private String msg;
+    private Map<String, Object> extendInfo = new HashMap<>();
 
-    public int getErrorcode() {
-        return errorcode;
+    public int getCode() {
+        return code;
     }
 
-    public void setErrorcode(int errorcode) {
-        this.errorcode = errorcode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getErrormsg() {
-        return errormsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setErrormsg(String errormsg) {
-        this.errormsg = errormsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public Object getData() {
-        return data;
+    public Map<String, Object> getExtendInfo() {
+        return extendInfo;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setExtendInfo(Map<String, Object> extendInfo) {
+        this.extendInfo = extendInfo;
+    }
+
+    public static ReData success(){
+        ReData res = new ReData();
+        res.setCode(0);
+        res.setMsg("操作成功！");
+        return res;
+    }
+
+    public static ReData fail(){
+        ReData res = new ReData();
+        res.setCode(1);
+        res.setMsg("操作失败！");
+        return res;
+    }
+
+    public ReData addInfo(String key, Object obj){
+        this.extendInfo.put(key, obj);
+        return this;
     }
 
     @Override
     public String toString() {
-        return "JsonObj{" +
-                "errorcode=" + errorcode +
-                ", errormsg='" + errormsg + '\'' +
-                ", data=" + data +
+        return "ReData{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", extendInfo=" + extendInfo +
                 '}';
     }
 }

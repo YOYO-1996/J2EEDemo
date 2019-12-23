@@ -40,17 +40,5 @@
     </div>
     <script src="static/js/jquery.min.js" ></script>
     <script src="static/js/bootstrap.min.js"></script>
-    <script>
-        var liArr = $('.navbar-nav > li');
-        liArr.each(function(index,e){
-            var This = $(this)
-            This.click(function(){
-                var Li = $('.navbar-nav').find('li.active')[0];
-                $(Li).removeClass("active");
-                This.addClass("active")
-            })
-        })
-    </script>
-
 </body>
 </html>

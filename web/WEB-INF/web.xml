@@ -26,6 +26,6 @@
         <url-pattern>/Staff/*</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>html1.html</welcome-file>
     </welcome-file-list>
 </web-app>
