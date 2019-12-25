@@ -17,30 +17,26 @@ public class StaffOperationService {
     Logger logger = Logger.getLogger(StaffOperationService.class);
     StaffOperationDao sod = new StaffOperationDao();
 
-    public StaffOperationService() {
-        logger.info("=====service层=====");
-    }
-
-    public void addStaffInfo(Staff staff) throws ClassNotFoundException, SQLException, IOException {
+    public void addStaffInfo(Staff staff){
         sod.addStaffInfo(staff);
     }
 
-    public void removeStaffInfo(int id) throws ClassNotFoundException, SQLException, IOException {
+    public void removeStaffInfo(int id){
         sod.removeStaffInfo(id);
     }
 
-    public void updateStaffInfo(Staff staff) throws ClassNotFoundException, SQLException, IOException {
+    public void updateStaffInfo(Staff staff){
         sod.updateStaffInfo(staff);
     }
 
-    public Staff queryStaffInfo(int id) throws ClassNotFoundException, SQLException, IOException {
+    public ArrayList<Staff> queryStaffInfo(int id){
         return sod.queryStaffInfo(id);
     }
 
-    public ArrayList<Staff> queryStaffList(int startIndex,int queryCount) throws ClassNotFoundException, SQLException, IOException {
+    public ArrayList<Staff> queryStaffList(int startIndex,int queryCount){
         return sod.queryStaffList(startIndex,queryCount);
     }
-    public int staffCount() throws ClassNotFoundException, SQLException, IOException {
+    public int staffCount(){
         return sod.staffCount();
     }
 }

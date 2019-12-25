@@ -3,9 +3,10 @@ package dao;
 import entity.Staff;
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+
+import utils.DBConn;
 
 /**
  * @description: 1.注册驱动(静态方法)(包名 + 类名 ）
@@ -19,154 +20,179 @@ import java.util.ArrayList;
 public class StaffOperationDao {
     Logger logger = Logger.getLogger(StaffOperationDao.class);
 
-    static final String url = "jdbc:mysql://49.235.184.120:6666/ArkNights?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true";
-    static final String user = "root";
-    static final String password = "Liuliuqiu123";
-
-    public StaffOperationDao() {
-        logger.info("=====dao层=====");
-    }
-
     //新增干员信息
-    public void addStaffInfo(Staff staff) throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "INSERT INTO staff ( sta_name, sta_sex, sta_health, sta_attack_Power, sta_cost, sta_defence, sta_avoid_Num, sta_spell_Resistance, sta_rarity, sta_Redeploy_Speed, sta_attack_Speed, sta_career, sta_faction )" +
-                "VALUES" +
-                "( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
-        PreparedStatement ps = conn.prepareStatement(sql);
+    public void addStaffInfo(Staff staff){
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "INSERT INTO staff ( sta_name, sta_sex, sta_health, sta_attack_Power, sta_cost, sta_defence, sta_avoid_Num, sta_spell_Resistance, sta_rarity, sta_Redeploy_Speed, sta_attack_Speed, sta_career, sta_faction )" +
+                    "VALUES" +
+                    "( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+            PreparedStatement ps = conn.prepareStatement(sql);
 
-        ps.setString(1, staff.getStaName());
-        ps.setString(2, staff.getStaSex());
-        ps.setString(3, staff.getStaHealth());
-        ps.setString(4, staff.getStaAttackPower());
-        ps.setString(5, staff.getStaCost());
-        ps.setString(6, staff.getStaDefence());
-        ps.setString(7, staff.getStaAvoidNum());
-        ps.setString(8, staff.getStaSpellResistance());
-        ps.setString(9, staff.getStaRarity());
-        ps.setString(10, staff.getStaRedeploySpeed());
-        ps.setString(11, staff.getStaAttackSpeed());
-        ps.setString(12, staff.getStaCareer());
-        ps.setString(13, staff.getStaFaction());
+            ps.setString(1, staff.getStaName());
+            ps.setString(2, staff.getStaSex());
+            ps.setString(3, staff.getStaHealth());
+            ps.setString(4, staff.getStaAttackPower());
+            ps.setString(5, staff.getStaCost());
+            ps.setString(6, staff.getStaDefence());
+            ps.setString(7, staff.getStaAvoidNum());
+            ps.setString(8, staff.getStaSpellResistance());
+            ps.setString(9, staff.getStaRarity());
+            ps.setString(10, staff.getStaRedeploySpeed());
+            ps.setString(11, staff.getStaAttackSpeed());
+            ps.setString(12, staff.getStaCareer());
+            ps.setString(13, staff.getStaFaction());
 
-
-        ps.execute();
-        ps.close();
-        conn.close();
+            ps.execute();
+            DBConn.closeConn(ps, conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     //删除干员信息
-    public void removeStaffInfo(int id) throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "delete from staff t where t.sta_id = ?";
-        PreparedStatement ps = conn.prepareStatement(sql);
+    public void removeStaffInfo(int id){
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "delete from staff t where t.sta_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
 
-        ps.setInt(1, id);
+            ps.setInt(1, id);
 
-        ps.execute();
-        ps.close();
-        conn.close();
+            ps.execute();
+            DBConn.closeConn(ps, conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     //修改干员信息
-    public void updateStaffInfo(Staff staff) throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "";
-        PreparedStatement ps = conn.prepareStatement(sql);
+    public void updateStaffInfo(Staff staff){
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "";
+            PreparedStatement ps = conn.prepareStatement(sql);
 
-        ps.setString(1, "");
+            ps.setString(1, "");
 
-        int row = ps.executeUpdate(sql);
-        ps.close();
-        conn.close();
+            int row = ps.executeUpdate(sql);
+            DBConn.closeConn(ps,conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     //查询单个干员信息
-    public Staff queryStaffInfo(int id) throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff where sta_id = ?";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, id);
+    public ArrayList<Staff> queryStaffInfo(int id){
+        ArrayList<Staff> staffList = null;
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff where sta_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
 
-        ResultSet rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
+            staffList = initialStaffList(rs);
 
-        Staff staff = new Staff();
-        while (rs.next()) {
-            staff.setStaId((long) rs.getInt("sta_id"));
-            staff.setStaName(rs.getString("sta_name"));
-            staff.setStaSex(rs.getString("sta_sex"));
-            staff.setStaHealth(rs.getString("sta_health"));
-            staff.setStaAttackPower(rs.getString("sta_attack_Power"));
-            staff.setStaCost(rs.getString("sta_cost"));
-            staff.setStaDefence(rs.getString("sta_defence"));
-            staff.setStaAvoidNum(rs.getString("sta_avoid_Num"));
-            staff.setStaSpellResistance(rs.getString("sta_spell_Resistance"));
-            staff.setStaRarity(rs.getString("sta_rarity"));
-            staff.setStaRedeploySpeed(rs.getString("sta_Redeploy_Speed"));
-            staff.setStaAttackSpeed(rs.getString("sta_attack_Speed"));
-            staff.setStaCareer(rs.getString("sta_career"));
-            staff.setStaFaction(rs.getString("sta_faction"));
+            DBConn.closeConn(ps, conn);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        logger.info(staff);
-        ps.close();
-        conn.close();
-        return staff;
-    }
-
-    //查询所有干员信息
-    public ArrayList<Staff> queryStaffList(int startIndex,int queryCount) throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_id limit ?,?";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, startIndex);//查询起始位
-        ps.setInt(2,queryCount);//每次查询的数量
-
-        ResultSet rs = ps.executeQuery();
-        ArrayList<Staff> staffList = new ArrayList<>();
-
-        while (rs.next()) {
-            Staff staff = new Staff();
-            staff.setStaId((long) rs.getInt("sta_id"));
-            staff.setStaName(rs.getString("sta_name"));
-            staff.setStaSex(rs.getString("sta_sex"));
-            staff.setStaHealth(rs.getString("sta_health"));
-            staff.setStaAttackPower(rs.getString("sta_attack_Power"));
-            staff.setStaCost(rs.getString("sta_cost"));
-            staff.setStaDefence(rs.getString("sta_defence"));
-            staff.setStaAvoidNum(rs.getString("sta_avoid_Num"));
-            staff.setStaSpellResistance(rs.getString("sta_spell_Resistance"));
-            staff.setStaRarity(rs.getString("sta_rarity"));
-            staff.setStaRedeploySpeed(rs.getString("sta_Redeploy_Speed"));
-            staff.setStaAttackSpeed(rs.getString("sta_attack_Speed"));
-            staff.setStaCareer(rs.getString("sta_career"));
-            staff.setStaFaction(rs.getString("sta_faction"));
-            staffList.add(staff);
-        }
-        ps.close();
-        conn.close();
         return staffList;
     }
 
-    public int staffCount() throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "select count(1) staffCount from staff";
-        PreparedStatement ps = conn.prepareStatement(sql);
+    //分页查询干员列表
+    public ArrayList<Staff> queryStaffList(int startIndex, int queryCount) {
+        ArrayList<Staff> staffList = null;
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_id limit ?,?";
 
-        ResultSet rs = ps.executeQuery(sql);
-        ArrayList<Staff> staffList = new ArrayList<>();
-        int staffTotal = 0;
-        while (rs.next()) {
-            staffTotal = rs.getInt("staffCount");
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, startIndex);//查询起始位
+            ps.setInt(2, queryCount);//每次查询的数量
+
+            ResultSet rs = ps.executeQuery();
+            staffList = initialStaffList(rs);
+
+            DBConn.closeConn(ps, conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        ps.close();
-        conn.close();
+        return staffList;
+    }
+
+    //查询干员条数
+    public int staffCount(){
+        int staffTotal = 0;
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "select count(1) staffCount from staff";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery(sql);
+
+            staffTotal = 0;
+            while (rs.next()) {
+                staffTotal = rs.getInt("staffCount");
+            }
+            ps.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return staffTotal;
     }
+
+    public ArrayList<Staff> queryStaffListByCon(int startIndex, int queryCount){
+        ArrayList<Staff> staffList = null;
+        try {
+            Connection conn = DBConn.getConn();
+            String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_id limit ?,?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, startIndex);
+            ps.setInt(2, queryCount);
+
+            ResultSet rs = ps.executeQuery();
+            staffList = initialStaffList(rs);
+
+            ps.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return staffList;
+    }
+
+
+    //初始化干员列表
+    public ArrayList<Staff> initialStaffList(ResultSet rs) {
+        ArrayList<Staff> staffList = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                Staff staff = new Staff();
+                staff.setStaId((long) rs.getInt("sta_id"));
+                staff.setStaName(rs.getString("sta_name"));
+                staff.setStaSex(rs.getString("sta_sex"));
+                staff.setStaHealth(rs.getString("sta_health"));
+                staff.setStaAttackPower(rs.getString("sta_attack_Power"));
+                staff.setStaCost(rs.getString("sta_cost"));
+                staff.setStaDefence(rs.getString("sta_defence"));
+                staff.setStaAvoidNum(rs.getString("sta_avoid_Num"));
+                staff.setStaSpellResistance(rs.getString("sta_spell_Resistance"));
+                staff.setStaRarity(rs.getString("sta_rarity"));
+                staff.setStaRedeploySpeed(rs.getString("sta_Redeploy_Speed"));
+                staff.setStaAttackSpeed(rs.getString("sta_attack_Speed"));
+                staff.setStaCareer(rs.getString("sta_career"));
+                staff.setStaFaction(rs.getString("sta_faction"));
+                staffList.add(staff);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return staffList;
+    }
+
 }
