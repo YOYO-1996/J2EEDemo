@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import utils.DBConn;
+import utils.StringUtils;
 
 /**
  * @description: 1.注册驱动(静态方法)(包名 + 类名 ）
@@ -161,10 +162,10 @@ public class StaffOperationDao {
         String factionCon = "";
         String rarityCon = "";
         //判断条件是否未空
-        if (null != name || !name.trim().equals("")) {
+        if (!StringUtils.isEmpty(name)) {
             nameCon += "sta_name = ? ";
         }
-        if (null != career || !career.trim().equals("")) {
+        if (!StringUtils.isEmpty(career)) {
             careerCon += "and sta_career = ? ";
         }
         if (null != faction || !faction.trim().equals("")) {
