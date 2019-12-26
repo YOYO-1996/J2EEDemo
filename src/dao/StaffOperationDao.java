@@ -7,9 +7,8 @@ import org.apache.log4j.Logger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import utils.DBConn;
+import utils.DbConn;
 import utils.StringUtils;
 
 /**
@@ -27,7 +26,7 @@ public class StaffOperationDao {
     //新增干员信息
     public void addStaffInfo(Staff staff) {
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
             String sql = "INSERT INTO staff ( sta_name, sta_sex, sta_health, sta_attack_Power, sta_cost, sta_defence, sta_avoid_Num, sta_spell_Resistance, sta_rarity, sta_Redeploy_Speed, sta_attack_Speed, sta_career, sta_faction )" +
                     "VALUES" +
                     "( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
@@ -48,7 +47,7 @@ public class StaffOperationDao {
             ps.setString(13, staff.getStaFaction());
 
             ps.execute();
-            DBConn.closeConn(ps, conn);
+            DbConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -57,14 +56,14 @@ public class StaffOperationDao {
     //删除干员信息
     public void removeStaffInfo(int id) {
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
             String sql = "delete from staff t where t.sta_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, id);
 
             ps.execute();
-            DBConn.closeConn(ps, conn);
+            DbConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,14 +72,14 @@ public class StaffOperationDao {
     //修改干员信息
     public void updateStaffInfo(Staff staff) {
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
             String sql = "";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, "");
 
             int row = ps.executeUpdate(sql);
-            DBConn.closeConn(ps, conn);
+            DbConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -90,7 +89,7 @@ public class StaffOperationDao {
     public ArrayList<Staff> queryStaffInfo(int id) {
         ArrayList<Staff> staffList = null;
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
             String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff where sta_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
@@ -98,7 +97,7 @@ public class StaffOperationDao {
             ResultSet rs = ps.executeQuery();
             staffList = initialStaffList(rs);
 
-            DBConn.closeConn(ps, conn);
+            DbConn.closeConn(ps, conn);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,7 +109,7 @@ public class StaffOperationDao {
     public ArrayList<Staff> queryStaffList(int startIndex, int queryCount) {
         ArrayList<Staff> staffList = null;
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
             String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_id limit ?,?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -120,7 +119,7 @@ public class StaffOperationDao {
             ResultSet rs = ps.executeQuery();
             staffList = initialStaffList(rs);
 
-            DBConn.closeConn(ps, conn);
+            DbConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,7 +130,7 @@ public class StaffOperationDao {
     public int staffCount() {
         int staffTotal = 0;
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
             String sql = "select count(1) staffCount from staff";
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -168,7 +167,7 @@ public class StaffOperationDao {
         if (!StringUtils.isEmpty(career)) {
             careerCon += "and sta_career = ? ";
         }
-        if (null != faction || !faction.trim().equals("")) {
+        if (!StringUtils.isEmpty(faction)) {
             factionCon += "and sta_faction = ? ";
         }
         if (null != rarityList || rarityList.size() != 0) {
@@ -186,9 +185,9 @@ public class StaffOperationDao {
         ArrayList<Staff> staffList = null;
         int index = 1;
         try {
-            Connection conn = DBConn.getConn();
+            Connection conn = DbConn.getConn();
 
-            PreparedStatement ps = DBConn.prepareSta(conn,sql);
+            PreparedStatement ps = DbConn.prepareSta(conn,sql);
             ps.setString(index, name);
             ps.setString(++index, career);
             ps.setString(++index, faction);
@@ -202,7 +201,7 @@ public class StaffOperationDao {
             ResultSet rs = ps.executeQuery();
             staffList = initialStaffList(rs);
 
-            DBConn.closeConn(ps, conn);
+            DbConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }

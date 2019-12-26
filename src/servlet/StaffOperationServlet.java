@@ -43,23 +43,23 @@ public class StaffOperationServlet extends HttpServlet {
             //处理请求
             if (url.equals("addStaffInfo")) {
                 logger.info("=====新增干员数据=====BEGIN=====");
-                addStaffInfo(req, res, reData);
+                reData = addStaffInfo(req);
                 logger.info("=====新增干员数据=====END=====");
             } else if (url.equals("removeStaffInfo")) {
                 logger.info("=====删除干员数据=====BEGIN=====");
-                removeStaffInfo(req, res, reData);
+                reData = removeStaffInfo(req);
                 logger.info("=====删除干员数据=====END=====");
             } else if (url.equals("updateStaffInfo")) {
                 logger.info("=====修改干员数据=====BEGIN=====");
-                updateStaffInfo(req, res, reData);
+                reData = updateStaffInfo(req);
                 logger.info("=====修改干员数据=====END=====");
             } else if (url.equals("queryStaffInfo")) {
                 logger.info("=====查询单条干员数据=====BEGIN=====");
-                queryStaffInfo(req, res, reData);
+                reData = queryStaffInfo(req);
                 logger.info("=====查询单条干员数据=====END=====");
             } else if (url.equals("queryStaffList")) {
                 logger.info("=====查询所有干员数据（分页）=====BEGIN=====");
-                reData = queryStaffList(req, res, reData);
+                reData = queryStaffList(req);
                 logger.info("=====查询所有干员数据（分页）=====END=====");
             } else if(url.equals("queryStaffListByCon")){
                 logger.info("=====根据条件分页查询干员列表=====BEGIN=====");
@@ -75,35 +75,58 @@ public class StaffOperationServlet extends HttpServlet {
         }
     }
 
-    private ReData addStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
+    /**
+     * 新增单条数据
+     * @param req
+     * @return ReData
+     */
+    private ReData addStaffInfo(ServletRequest req) {
         String staffInfo = req.getParameter("staff");
         List<Staff> staffList = JSONObject.parseArray(staffInfo, Staff.class);
         sos.addStaffInfo(staffList.get(0));
         return ReData.success();
     }
 
-    private ReData removeStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
+    /**
+     * 删除单条数据
+     * @param req
+     * @return ReData
+     */
+    private ReData removeStaffInfo(ServletRequest req) {
         int staId = Integer.parseInt(req.getParameter("staId"));
         sos.removeStaffInfo(staId);
         return ReData.success();
     }
 
-    private ReData updateStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
+    /**
+     * 更新单条数据
+     * @param req
+     * @return ReData
+     */
+    private ReData updateStaffInfo(ServletRequest req) {
         String staffInfo = req.getParameter("staff");
         logger.info("服务端接收到的数据是：" + staffInfo);
         return ReData.success();
     }
 
-    private ReData queryStaffInfo(ServletRequest req, ServletResponse res, ReData reData) {
+    /**
+     * 查询单条数据
+     * @param req
+     * @return ReData
+     */
+    private ReData queryStaffInfo(ServletRequest req) {
 
         int id = Integer.parseInt(req.getParameter("id"));
         ArrayList<Staff> list = sos.queryStaffInfo(id);
-        reData = ReData.success().addInfo("staffList", list);
-        logger.info(reData);
-        return reData;
+        return ReData.success().addInfo("staffList", list);
     }
 
-    private ReData queryStaffList(ServletRequest req, ServletResponse res, ReData reData) {
+    /**
+     * 分页查询数据
+     * @param req
+     * @return ReData
+     */
+    private ReData queryStaffList(ServletRequest req) {
 
         int startIndex = Integer.parseInt(req.getParameter("page"));
         int queryCount = Integer.parseInt(req.getParameter("limit"));

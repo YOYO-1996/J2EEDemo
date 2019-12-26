@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @description：
  * @version: $
  */
-public class DBConn {
+public class DbConn {
     static final String url = "jdbc:mysql://49.235.184.120:6666/ArkNights?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true";
     static final String user = "root";
     static final String password = "Liuliuqiu123";
