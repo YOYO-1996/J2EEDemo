@@ -3,13 +3,15 @@ package dao;
 import entity.Rarity;
 import entity.Staff;
 import org.apache.log4j.Logger;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 import utils.DbConn;
 import utils.StringUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description: 1.注册驱动(静态方法)(包名 + 类名 ）
@@ -156,47 +158,35 @@ public class StaffOperationDao {
      **/
     public ArrayList<Staff> queryStaffListByCon(int startIndex, int queryCount, String name, String career, String faction, List<Rarity> rarityList) {
         //获取条件
-        String nameCon = "";
-        String careerCon = "";
-        String factionCon = "";
-        String rarityCon = "";
-        //判断条件是否未空
+        ArrayList<Parameter> parameters = new ArrayList<>();
+        //非空加条件
         if (!StringUtils.isEmpty(name)) {
-            nameCon += "sta_name = ? ";
+            parameters.add(new Parameter("and", "sta_name", "=", name));
         }
         if (!StringUtils.isEmpty(career)) {
-            careerCon += "and sta_career = ? ";
+            parameters.add(new Parameter("and", "sta_career", "=", career));
         }
         if (!StringUtils.isEmpty(faction)) {
-            factionCon += "and sta_faction = ? ";
+            parameters.add(new Parameter("and", "sta_faction", "=", faction));
         }
+        ArrayList<Parameter> parameterIns = new ArrayList<>();
         if (null != rarityList || rarityList.size() != 0) {
-            rarityCon = "and sta_rarity in (";
-            for (int i = 0; i < rarityList.size(); i++) {
-                rarityCon += "?,";
+            for (Rarity rarity : rarityList) {
+                parameterIns.add(new Parameter("and", "sta_rarity", "in", rarity));
             }
-            rarityCon = rarityCon.substring(-1) + ") ";
         }
         //拼接字符串
-        String sql = SQLString.queryMain + "where " + nameCon + careerCon + factionCon + rarityCon +
-                "order by sta_id limit ?,?";
-        logger.info(sql);
+        String sql = DynamicQuery.generateSql(StaffSQLString.queryMain, parameters);
+        sql = DynamicQuery.generateSqlWithIn(sql, parameterIns) + StaffSQLString.orderById + StaffSQLString.pageGroup;
 
         ArrayList<Staff> staffList = null;
-        int index = 1;
         try {
             Connection conn = DbConn.getConn();
 
             PreparedStatement ps = DbConn.prepareSta(conn,sql);
-            ps.setString(index, name);
-            ps.setString(++index, career);
-            ps.setString(++index, faction);
-
-            for (Rarity rarity : rarityList) {
-                ps.setString(++index, rarity.getName());
-            }
-            ps.setInt(++index, startIndex);
-            ps.setInt(++index, queryCount);
+            int index = 0;
+            index = DynamicQuery.fillPreStaComm(ps, parameters, index);
+            DynamicQuery.fillPreStaComm(ps, parameterIns, index);
 
             ResultSet rs = ps.executeQuery();
             staffList = initialStaffList(rs);

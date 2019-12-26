@@ -14,46 +14,40 @@ import java.util.ArrayList;
 public class DynamicQuery {
     private static Logger logger= Logger.getLogger(DynamicQuery.class);
 
-    private String templet = " %s %s %s ?";
-    private String baseSql;
-    private ArrayList<Parameter> parameters = new ArrayList<Parameter>();
+    private static String templet = " %s %s %s ?";//and sta_name = ?
+    private static String inTemplet = " %s %s %s (";//and sta_name in (
 
-    public DynamicQuery() {
-
-    }
-
-    /**
-     * 要求baseSql带有where条件
-     *
-     * @param baseSql
-     */
-    public void setBaseSql(String baseSql) {
-        this.baseSql = baseSql;
-    }
-
-    public void addParameter(Parameter parameter) {
-        parameters.add(parameter);
-    }
-
-    public String generateSql() {
-        StringBuffer buffer = new StringBuffer(baseSql);
-        for (Parameter p : parameters) {
+    public static String generateSql(String sql, ArrayList<Parameter> parameterList) {
+        StringBuffer buffer = new StringBuffer(sql);
+        for (Parameter p : parameterList) {
             buffer.append(String.format(templet, p.getConcat(),p.getField(), p.getOperator()));
         }
         logger.debug(buffer);
         return buffer.toString();
     }
 
-    public void fillPreparedStatement(PreparedStatement pst) throws SQLException {
-        int count = 1;
-        for (Parameter p : parameters) {
-            pst.setObject(count, p.getValue());
-            count++;
-        }
-    }
-    /**
-     * 对in的单独操作
-     */
+    public static String generateSqlWithIn(String sql, ArrayList<Parameter> parameterList) {
+        StringBuffer buffer = new StringBuffer(sql);
+        Parameter p = parameterList.get(0);
 
+        buffer.append(String.format(inTemplet, p.getConcat(), p.getField(), p.getOperator()));
+        for (int i = 0; i < parameterList.size(); i++) {
+            buffer.append("?,");
+        }
+        buffer.append(")");
+        logger.debug(buffer);
+        return buffer.substring(buffer.length() - 3, buffer.length() - 2);//去掉最后一个逗号
+    }
+
+    /**
+     * 通用操作
+     */
+    public static int fillPreStaComm(PreparedStatement pst, ArrayList<Parameter> parameterList, int index) throws SQLException {
+        for (Parameter p : parameterList) {
+            index++;
+            pst.setObject(index, p.getValue());
+        }
+        return index;
+    }
 
 }
