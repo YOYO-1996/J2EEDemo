@@ -1,6 +1,7 @@
 package servlet;
 
 import com.alibaba.fastjson.JSONObject;
+import entity.Rarity;
 import entity.ReData;
 import entity.Staff;
 import org.apache.log4j.Logger;
@@ -60,6 +61,10 @@ public class StaffOperationServlet extends HttpServlet {
                 logger.info("=====查询所有干员数据（分页）=====BEGIN=====");
                 reData = queryStaffList(req, res, reData);
                 logger.info("=====查询所有干员数据（分页）=====END=====");
+            } else if(url.equals("queryStaffListByCon")){
+                logger.info("=====根据条件分页查询干员列表=====BEGIN=====");
+                reData = queryStaffListByCon(req);
+                logger.info("=====根据条件分页查询干员列表=====END=====");
             }
             String responseData = JSONObject.toJSONString(reData);
             logger.info("=====ReData数据:" + responseData);
@@ -103,6 +108,23 @@ public class StaffOperationServlet extends HttpServlet {
         int startIndex = Integer.parseInt(req.getParameter("page"));
         int queryCount = Integer.parseInt(req.getParameter("limit"));
         ArrayList<Staff> staff = sos.queryStaffList((startIndex - 1) * queryCount, queryCount);
+        logger.info(staff);
+        return ReData.success().addInfo("total", sos.staffCount()).addInfo("staffList", staff);
+    }
+
+    private ReData queryStaffListByCon(ServletRequest req) {
+
+        int startIndex = Integer.parseInt(req.getParameter("page"));
+        int queryCount = Integer.parseInt(req.getParameter("limit"));
+        String name = req.getParameter("name");
+        String career = req.getParameter("career");
+        String faction = req.getParameter("faction");
+        String rarityString = req.getParameter("rarityList");
+
+        logger.info("干员姓名："+name+"\n"+"职业"+career+"\n"+"派别"+faction);
+        List<Rarity> rarityList = JSONObject.parseArray(rarityString, Rarity.class);
+        logger.info("星级"+rarityList);
+        ArrayList<Staff> staff = sos.queryStaffListByCon((startIndex - 1) * queryCount, queryCount, name, career, faction, rarityList);
         logger.info(staff);
         return ReData.success().addInfo("total", sos.staffCount()).addInfo("staffList", staff);
     }

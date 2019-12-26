@@ -1,10 +1,13 @@
 package dao;
 
+import entity.Rarity;
 import entity.Staff;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import utils.DBConn;
 
@@ -21,7 +24,7 @@ public class StaffOperationDao {
     Logger logger = Logger.getLogger(StaffOperationDao.class);
 
     //新增干员信息
-    public void addStaffInfo(Staff staff){
+    public void addStaffInfo(Staff staff) {
         try {
             Connection conn = DBConn.getConn();
             String sql = "INSERT INTO staff ( sta_name, sta_sex, sta_health, sta_attack_Power, sta_cost, sta_defence, sta_avoid_Num, sta_spell_Resistance, sta_rarity, sta_Redeploy_Speed, sta_attack_Speed, sta_career, sta_faction )" +
@@ -51,7 +54,7 @@ public class StaffOperationDao {
     }
 
     //删除干员信息
-    public void removeStaffInfo(int id){
+    public void removeStaffInfo(int id) {
         try {
             Connection conn = DBConn.getConn();
             String sql = "delete from staff t where t.sta_id = ?";
@@ -67,7 +70,7 @@ public class StaffOperationDao {
     }
 
     //修改干员信息
-    public void updateStaffInfo(Staff staff){
+    public void updateStaffInfo(Staff staff) {
         try {
             Connection conn = DBConn.getConn();
             String sql = "";
@@ -76,14 +79,14 @@ public class StaffOperationDao {
             ps.setString(1, "");
 
             int row = ps.executeUpdate(sql);
-            DBConn.closeConn(ps,conn);
+            DBConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     //查询单个干员信息
-    public ArrayList<Staff> queryStaffInfo(int id){
+    public ArrayList<Staff> queryStaffInfo(int id) {
         ArrayList<Staff> staffList = null;
         try {
             Connection conn = DBConn.getConn();
@@ -124,7 +127,7 @@ public class StaffOperationDao {
     }
 
     //查询干员条数
-    public int staffCount(){
+    public int staffCount() {
         int staffTotal = 0;
         try {
             Connection conn = DBConn.getConn();
@@ -145,21 +148,60 @@ public class StaffOperationDao {
         return staffTotal;
     }
 
-    public ArrayList<Staff> queryStaffListByCon(int startIndex, int queryCount){
+    /**
+     * @Description: 根据条件分页查询干员列表
+     * @Param: [startIndex, queryCount]
+     * @Return: java.util.ArrayList<entity.Staff>
+     * @Date: 2019/12/26
+     **/
+    public ArrayList<Staff> queryStaffListByCon(int startIndex, int queryCount, String name, String career, String faction, List<Rarity> rarityList) {
+        //获取条件
+        String nameCon = "";
+        String careerCon = "";
+        String factionCon = "";
+        String rarityCon = "";
+        //判断条件是否未空
+        if (null != name || !name.trim().equals("")) {
+            nameCon += "sta_name = ? ";
+        }
+        if (null != career || !career.trim().equals("")) {
+            careerCon += "and sta_career = ? ";
+        }
+        if (null != faction || !faction.trim().equals("")) {
+            factionCon += "and sta_faction = ? ";
+        }
+        if (null != rarityList || rarityList.size() != 0) {
+            rarityCon = "and sta_rarity in (";
+            for (int i = 0; i < rarityList.size(); i++) {
+                rarityCon += "?,";
+            }
+            rarityCon = rarityCon.substring(-1) + ") ";
+        }
+        //拼接字符串
+        String sql = SQLString.queryMain + "where " + nameCon + careerCon + factionCon + rarityCon +
+                "order by sta_id limit ?,?";
+        logger.info(sql);
+
         ArrayList<Staff> staffList = null;
+        int index = 1;
         try {
             Connection conn = DBConn.getConn();
-            String sql = "select sta_id,sta_name,sta_sex,sta_health,sta_attack_Power,sta_cost,sta_defence,sta_avoid_Num,sta_spell_Resistance,sta_rarity,sta_Redeploy_Speed,sta_attack_Speed,sta_career,sta_faction from staff order by sta_id limit ?,?";
 
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, startIndex);
-            ps.setInt(2, queryCount);
+            PreparedStatement ps = DBConn.prepareSta(conn,sql);
+            ps.setString(index, name);
+            ps.setString(++index, career);
+            ps.setString(++index, faction);
+
+            for (Rarity rarity : rarityList) {
+                ps.setString(++index, rarity.getName());
+            }
+            ps.setInt(++index, startIndex);
+            ps.setInt(++index, queryCount);
 
             ResultSet rs = ps.executeQuery();
             staffList = initialStaffList(rs);
 
-            ps.close();
-            conn.close();
+            DBConn.closeConn(ps, conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
