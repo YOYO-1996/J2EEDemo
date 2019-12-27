@@ -1,7 +1,7 @@
 package dao;
 
 /**
- * @description:
+ * @description: sql查询参数类
  * @author: Tong
  * @date: 2019-12-26 20:02
  */

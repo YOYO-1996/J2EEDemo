@@ -3,7 +3,7 @@ package dao;
 /**
  * @author ：Tong
  * @date ：Created in 2019/12/26 9:53
- * @description：
+ * @description： 干员查询语句
  * @version: $
  */
 public class StaffSQLString {

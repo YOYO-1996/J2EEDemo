@@ -152,9 +152,9 @@ public class StaffOperationDao {
 
     /**
      * @Description: 根据条件分页查询干员列表
-     * @Param: [startIndex, queryCount]
+     * @Param: [startIndex, queryCount, name, career, faction, rarityList]
      * @Return: java.util.ArrayList<entity.Staff>
-     * @Date: 2019/12/26
+     * @Date: 2019/12/27
      **/
     public ArrayList<Staff> queryStaffListByCon(int startIndex, int queryCount, String name, String career, String faction, List<Rarity> rarityList) {
         //获取条件
@@ -169,24 +169,23 @@ public class StaffOperationDao {
         if (!StringUtils.isEmpty(faction)) {
             parameters.add(new Parameter("and", "sta_faction", "=", faction));
         }
-        ArrayList<Parameter> parameterIns = new ArrayList<>();
         if (null != rarityList || rarityList.size() != 0) {
             for (Rarity rarity : rarityList) {
-                parameterIns.add(new Parameter("and", "sta_rarity", "in", rarity));
+                parameters.add(new Parameter("and", "sta_rarity", "in", rarity.getName()));
             }
         }
         //拼接字符串
-        String sql = DynamicQuery.generateSql(StaffSQLString.queryMain, parameters);
-        sql = DynamicQuery.generateSqlWithIn(sql, parameterIns) + StaffSQLString.orderById + StaffSQLString.pageGroup;
-
+        String sql = DynamicQuery.generateSql(StaffSQLString.queryMain, parameters) + StaffSQLString.orderById + StaffSQLString.pageGroup;
+        logger.info(sql);
+        parameters.add(new Parameter("", "", "", startIndex));
+        parameters.add(new Parameter("", "", "", queryCount));
         ArrayList<Staff> staffList = null;
         try {
             Connection conn = DbConn.getConn();
 
-            PreparedStatement ps = DbConn.prepareSta(conn,sql);
+            PreparedStatement ps = DbConn.prepareSta(conn, sql);
             int index = 0;
             index = DynamicQuery.fillPreStaComm(ps, parameters, index);
-            DynamicQuery.fillPreStaComm(ps, parameterIns, index);
 
             ResultSet rs = ps.executeQuery();
             staffList = initialStaffList(rs);
