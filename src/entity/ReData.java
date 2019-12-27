@@ -14,6 +14,14 @@ public class ReData{
     private String msg;
     private Map<String, Object> extendInfo = new HashMap<>();
 
+    public ReData() {
+    }
+
+    public ReData(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
     public int getCode() {
         return code;
     }
