@@ -6,6 +6,7 @@ import entity.ReData;
 import entity.Staff;
 import org.apache.log4j.Logger;
 import service.StaffOperationService;
+import utils.StringUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -29,15 +30,15 @@ public class StaffOperationServlet extends HttpServlet {
         HttpServletRequest hsr = (HttpServletRequest) req;
         String url = hsr.getPathInfo().substring(1);
 
-//        logger.info(hsr.getContextPath()
-//                +"\n"+hsr.getPathInfo()
-//                +"\n"+hsr.getMethod()
-//                +"\n"+hsr.getQueryString()
-//                +"\n"+hsr.getServletPath()
-//                +"\n"+hsr.getRemoteAddr()
-//                +"\n"+hsr.getRemoteUser()
-//                +"\n"+hsr.getPathTranslated()
-//                +"\n"+hsr.getRequestURI());
+        logger.info(hsr.getContextPath()
+                +"\n"+hsr.getPathInfo()
+                +"\n"+hsr.getMethod()
+                +"\n"+hsr.getQueryString()
+                +"\n"+hsr.getServletPath()
+                +"\n"+hsr.getRemoteAddr()
+                +"\n"+hsr.getRemoteUser()
+                +"\n"+hsr.getPathTranslated()
+                +"\n"+hsr.getRequestURI());
         ReData reData = new ReData();
         try {
             //处理请求
@@ -127,7 +128,8 @@ public class StaffOperationServlet extends HttpServlet {
      * @return ReData
      */
     private ReData queryStaffList(ServletRequest req) {
-
+        HttpServletRequest hsr = (HttpServletRequest) req;
+        logger.info(req.getAttribute("page"));
         int startIndex = Integer.parseInt(req.getParameter("page"));
         int queryCount = Integer.parseInt(req.getParameter("limit"));
         ArrayList<Staff> staff = sos.queryStaffList((startIndex - 1) * queryCount, queryCount);
@@ -144,9 +146,18 @@ public class StaffOperationServlet extends HttpServlet {
         String faction = req.getParameter("faction");
         String rarityString = req.getParameter("rarityList");
 
-        logger.info("干员姓名："+name+"\n"+"职业"+career+"\n"+"派别"+faction);
-        List<Rarity> rarityList = JSONObject.parseArray(rarityString, Rarity.class);
-        logger.info("星级"+rarityList);
+        logger.info("干员姓名："+name+"\t"+"职业："+career+"\t"+"派别："+faction);
+        if (StringUtils.isEmpty(rarityString)){
+            return new ReData(1,"干员星级不能为空！");
+        }
+        List<Rarity> rarityList =null;
+        try {
+            rarityList = JSONObject.parseArray(rarityString, Rarity.class);
+        } catch (Exception e) {
+            logger.error("json解析异常",e);
+            return new ReData(1,"json解析异常！");
+        }
+        logger.info("参数获取完成");
         ArrayList<Staff> staff = sos.queryStaffListByCon((startIndex - 1) * queryCount, queryCount, name, career, faction, rarityList);
         logger.info(staff);
         return ReData.success().addInfo("total", sos.staffCount()).addInfo("staffList", staff);
