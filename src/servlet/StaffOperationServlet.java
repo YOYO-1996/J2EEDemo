@@ -31,14 +31,14 @@ public class StaffOperationServlet extends HttpServlet {
         String url = hsr.getPathInfo().substring(1);
 
         logger.info(hsr.getContextPath()
-                +"\n"+hsr.getPathInfo()
-                +"\n"+hsr.getMethod()
-                +"\n"+hsr.getQueryString()
-                +"\n"+hsr.getServletPath()
-                +"\n"+hsr.getRemoteAddr()
-                +"\n"+hsr.getRemoteUser()
-                +"\n"+hsr.getPathTranslated()
-                +"\n"+hsr.getRequestURI());
+                + "\n" + hsr.getPathInfo()
+                + "\n" + hsr.getMethod()
+                + "\n" + hsr.getQueryString()
+                + "\n" + hsr.getServletPath()
+                + "\n" + hsr.getRemoteAddr()
+                + "\n" + hsr.getRemoteUser()
+                + "\n" + hsr.getPathTranslated()
+                + "\n" + hsr.getRequestURI());
         ReData reData = new ReData();
         try {
             //处理请求
@@ -62,7 +62,7 @@ public class StaffOperationServlet extends HttpServlet {
                 logger.info("=====查询所有干员数据（分页）=====BEGIN=====");
                 reData = queryStaffList(req);
                 logger.info("=====查询所有干员数据（分页）=====END=====");
-            } else if(url.equals("queryStaffListByCon")){
+            } else if (url.equals("queryStaffListByCon")) {
                 logger.info("=====根据条件分页查询干员列表=====BEGIN=====");
                 reData = queryStaffListByCon(req);
                 logger.info("=====根据条件分页查询干员列表=====END=====");
@@ -72,12 +72,13 @@ public class StaffOperationServlet extends HttpServlet {
             res.getWriter().print(responseData);
         } catch (IOException e) {
             e.printStackTrace();
-            logger.info(e.getStackTrace());
+            logger.info(e.getMessage() + e.getStackTrace());
         }
     }
 
     /**
      * 新增单条数据
+     *
      * @param req
      * @return ReData
      */
@@ -90,6 +91,7 @@ public class StaffOperationServlet extends HttpServlet {
 
     /**
      * 删除单条数据
+     *
      * @param req
      * @return ReData
      */
@@ -101,6 +103,7 @@ public class StaffOperationServlet extends HttpServlet {
 
     /**
      * 更新单条数据
+     *
      * @param req
      * @return ReData
      */
@@ -112,6 +115,7 @@ public class StaffOperationServlet extends HttpServlet {
 
     /**
      * 查询单条数据
+     *
      * @param req
      * @return ReData
      */
@@ -124,11 +128,11 @@ public class StaffOperationServlet extends HttpServlet {
 
     /**
      * 分页查询数据
+     *
      * @param req
      * @return ReData
      */
     private ReData queryStaffList(ServletRequest req) {
-        HttpServletRequest hsr = (HttpServletRequest) req;
         logger.info(req.getAttribute("page"));
         int startIndex = Integer.parseInt(req.getParameter("page"));
         int queryCount = Integer.parseInt(req.getParameter("limit"));
@@ -146,16 +150,16 @@ public class StaffOperationServlet extends HttpServlet {
         String faction = req.getParameter("faction");
         String rarityString = req.getParameter("rarityList");
 
-        logger.info("干员姓名："+name+"\t"+"职业："+career+"\t"+"派别："+faction);
-        if (StringUtils.isEmpty(rarityString)){
-            return new ReData(1,"干员星级不能为空！");
+        logger.info("干员姓名：" + name + "\t" + "职业：" + career + "\t" + "派别：" + faction);
+        if (StringUtils.isEmpty(rarityString)) {
+            return new ReData(1, "干员星级不能为空！");
         }
-        List<Rarity> rarityList =null;
+        List<Rarity> rarityList;
         try {
             rarityList = JSONObject.parseArray(rarityString, Rarity.class);
         } catch (Exception e) {
-            logger.error("json解析异常",e);
-            return new ReData(1,"json解析异常！");
+            logger.error("json解析异常", e);
+            return new ReData(1, "json解析异常！");
         }
         logger.info("参数获取完成");
         ArrayList<Staff> staff = sos.queryStaffListByCon((startIndex - 1) * queryCount, queryCount, name, career, faction, rarityList);
