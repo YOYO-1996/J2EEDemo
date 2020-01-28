@@ -175,7 +175,7 @@ public class StaffOperationDao {
             }
         }
         //拼接字符串
-        String sql = DynamicQuery.generateSql(StaffSQLString.queryMain, parameters) + StaffSQLString.orderById + StaffSQLString.pageGroup;
+        String sql = DynamicQuery.generateSql(SQLString.queryStaffMain, parameters) + SQLString.orderById + SQLString.pageGroup;
         logger.info(sql);
         parameters.add(new Parameter("", "", "", startIndex));
         parameters.add(new Parameter("", "", "", queryCount));
