@@ -25,12 +25,12 @@ public class EncodingFilter implements Filter {
         // 设置字符编码链锁
         HttpServletRequest hsr = (HttpServletRequest)request;
         request.setCharacterEncoding(this.encoding);
-        response.setCharacterEncoding(this.encoding);
         if(hsr.getMethod().equals("POST")){
             response.setContentType("application/json");
         }
+        response.setCharacterEncoding(this.encoding);
         chain.doFilter(request, response);
-
+        response.setCharacterEncoding(this.encoding);
     }
 
     @Override

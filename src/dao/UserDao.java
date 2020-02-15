@@ -1,6 +1,7 @@
 package dao;
 
 import entity.UserInfo;
+import org.apache.log4j.Logger;
 import utils.DbConn;
 
 import java.sql.Connection;
@@ -16,23 +17,26 @@ import java.util.ArrayList;
  * @version: $
  */
 public class UserDao {
+    Logger logger = Logger.getLogger(UserDao.class);
 
-    public UserInfo queryUserInfo(int userMobile) {
+    public UserInfo queryUserInfo(String userMobile) {
 
         ArrayList<Parameter> parameters = new ArrayList<>();
 
         parameters.add(new Parameter("and", "pui_user_mobile", "=", userMobile));
 
-        UserInfo userInfo = null;
+        UserInfo userInfo = new UserInfo();
         try {
             Connection conn = DbConn.getConn();
             String sql = SQLString.queryUserMain;
+            sql = DynamicQuery.generateSql(sql, parameters);
+            logger.info(sql);
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, userMobile);
+            ps.setString(1, userMobile);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                userInfo.setUserId(rs.getString("pui_id"));
+                userInfo.setUserId(rs.getString("pui_user_id"));
                 userInfo.setUserMobile(rs.getString("pui_user_mobile"));
                 userInfo.setUserEmail(rs.getString("pui_user_email"));
                 userInfo.setUserName(rs.getString("pui_user_name"));

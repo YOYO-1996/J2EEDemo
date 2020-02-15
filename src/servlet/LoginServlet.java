@@ -8,16 +8,13 @@ import org.apache.log4j.Logger;
 import service.LoginService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 /**
  * @author ：Tong
  * @date ：Created in 2020/1/28 20:09
- * @description：
+ * @description：手机号和密码登录
  * @version: $
  */
 public class LoginServlet extends HttpServlet {
@@ -43,12 +40,14 @@ public class LoginServlet extends HttpServlet {
             //处理请求
             if (url.equals("loginOn")) {
                 logger.info("=====登录====BEGIN=====");
-                reData = loginOn(req);
+                reData = loginOn(req, resp);
                 logger.info("=====登录=====END=====");
             } else if (url.equals("queryUserInfo")) {
                 logger.info("=====查询用户信息=====BEGIN=====");
-                reData = queryUserInfo(req,resp);
+                reData = queryUserInfo(req, resp);
                 logger.info("=====查询用户信息=====END=====");
+            } else if (url.equals("loginFail")) {
+
             }
             String responseData = JSONObject.toJSONString(reData);
             logger.info("=====ReData数据:" + responseData);
@@ -59,30 +58,46 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    public ReData loginOn(HttpServletRequest request) {
-
-        return ReData.success();
+    /**
+     * @Description: 登录流程
+     * @Param: [request]
+     * @Return: entity.ReData
+     * @Date: 2020/2/14
+     **/
+    public ReData loginOn(HttpServletRequest request, HttpServletResponse response) {
+        String mobile = request.getParameter("mobile");
+        String Pwd = request.getParameter("Pwd");
+//        try {
+//            loginService.loginOn(mobile, Pwd);
+//        } catch (Exception e) {
+//
+//        }
+        //登录成功
+        //获取用户信息
+        UserInfo userInfo = loginService.queryUserInfo(mobile);
+        logger.info(userInfo);
+        HttpSession session = request.getSession();
+        session.setAttribute("userInfo", userInfo);
+        //不使用tomcat的sessionid,关闭浏览器即失效
+        //手动保存
+//        String userInfoStr = JSON.toJSONString(userInfo);
+//        //保存信息在cookie中
+//        Cookie cookie = new Cookie("userInfo", userInfoStr);
+//        cookie.setMaxAge(60);
+//        cookie.setPath("/");
+//        response.addCookie(cookie);
+        return ReData.success().addInfo("userInfo", userInfo);
     }
 
-    public ReData queryUserInfo(HttpServletRequest request,HttpServletResponse response) {
-        int userMobile = Integer.parseInt(request.getParameter("userMobile"));
-        Cookie[] cookies = request.getCookies();
-        if (null != cookies) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getDomain().equals("/login")) {
+    public ReData queryUserInfo(HttpServletRequest request, HttpServletResponse response) {
 
-                }
-            }
-        } else {//无cookie或失效
-            //获取用户信息
-            UserInfo userInfo = loginService.queryUserInfo(userMobile);
-            String userInfoStr = JSON.toJSONString(userInfo);
-            //保存信息在cookie中
-            Cookie cookie = new Cookie("userInfo", userInfoStr);
-            cookie.setMaxAge(60);
-            cookie.setPath("/queryUserInfo/");
-            response.addCookie(cookie);
+        HttpSession session = request.getSession();
+        UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
+        logger.info(userInfo);
+        if (userInfo != null) {
+            return ReData.success().addInfo("userInfo", userInfo);
+        } else {
+            return new ReData(1, "您还未登录，请先登录!");
         }
-        return ReData.success();
     }
 }

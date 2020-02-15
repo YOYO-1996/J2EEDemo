@@ -16,5 +16,5 @@ public class SQLString {
     static final String pageGroup = " limit ?,? ";
 
     static final String queryUserMain = "select pui_user_id, pui_user_mobile, pui_user_name, pui_user_email, pui_user_pwd, pui_user_stt from pub_user_info" +
-            "where 1 = 1 ";
+            " where 1 = 1 ";
 }
