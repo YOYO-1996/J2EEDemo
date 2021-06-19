@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<span class="userWel"></span><br>
+手机号：<input type="text" value="18860902757" id="mobile">
+密码：<input type="text" value="1234" id="Pwd">
+<input type="button" value="登录" onclick="login()">
+</body>
+
+<script>
+
+    $(function () {
+        $.ajax({
+            url: '/Login/queryUserInfo',
+            data: {},
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+                if (res.code === 1) {
+                    $(".userWel").html(res.msg);
+                } else if (res.code === 0) {
+                    var mobile = res.extendInfo.userInfo.userName;
+                    $(".userWel").html("欢迎您，" + mobile);
+                }
+            }
+        })
+    });
+
+    function login() {
+        var mobile = $("#mobile").val();
+        var Pwd = $("#Pwd").val();
+        $.ajax({
+            url: '/Login/loginOn',
+            data: {mobile: mobile, Pwd: Pwd},
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+                if (res.code === 1) {
+                    alert(res.msg);
+                } else if (res.code === 0) {
+                    var userName = res.extendInfo.userInfo.userName;
+                    $(".userWel").html("欢迎您，" + userName);
+                }
+            }
+        })
+    }
+</script>
+</html>

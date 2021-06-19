@@ -1,0 +1,15 @@
+.contentBody {
+    width: 80%;
+    margin: 20px auto;
+}
+.btn-text{
+    color: rgba(255,255,255,.5);
+}
+.btn-text:hover{
+    color: #fff !important;
+    text-decoration: none;
+    /*cursor: pointer;*/
+}
+.btn-text:visited,.btn-text:active,.btn-text:link,.btn-text:focus{
+    text-decoration: none !important;
+}

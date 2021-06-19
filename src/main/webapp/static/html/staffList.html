@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干员信息</title>
+    <link rel="shortcut icon" href="/static/images/标签栏图标.jpg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="../css/public.css" rel="stylesheet">
+    <link href="../css/staffList.css" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../../../../../../../web/index.html">明日方舟数据库</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="staffList.html">干员列表</a>
+                </li>
+            </ul>
+            <button class="btn btn-link my-2 my-sm-0 btn-text">登录</button>
+        </div>
+    </nav>
+</div>
+<div class=contentBody>
+    <form>
+        <div class="form-group row">
+            <label for="staffName" class="col-sm-2 col-form-label text-light">干员名称：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="staffName">
+            </div>
+
+            <label class="col-sm-2 col-form-label text-light">干员星级：</label>
+            <div class="form-check col-sm-3 col-form-label">
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox6" value="6"> 6星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox5" value="5"> 5星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox4" value="4"> 4星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox3" value="3"> 3星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox2" value="2"> 2星 </label>
+                <label class="checkbox-inline text-light">
+                    <input type="checkbox" id="inlineCheckbox1" value="1"> 1星 </label>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-primary" id="queryStaffBtn" onclick="queryStaffList()">查询干员</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-light" for="inlineFormCustomSelectPref2">干员职业：</label>
+            <select class="custom-select col-sm-3" id="inlineFormCustomSelectPref2">
+                <option selected>全部</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <label class="col-sm-2 col-form-label text-light" for="inlineFormCustomSelectPref3">干员派别：</label>
+            <select class="custom-select col-sm-3" id="inlineFormCustomSelectPref3">
+                <option selected>全部</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <div class="col-sm-2">
+                <button type="reset" class="btn btn-warning">重置选择</button>
+            </div>
+        </div>
+    </form>
+<!--    表格-->
+    <table class="table table-sm table-striped table-hover table-bordered table-dark">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>性别</th>
+            <th>星级</th>
+            <th>职业</th>
+            <th>派别</th>
+            <th>部署费用</th>
+            <th>血量</th>
+            <th>攻击</th>
+            <th>防御</th>
+            <th>法术防御</th>
+            <th>攻击阻挡</th>
+            <th>阻挡数</th>
+            <th>再部署速度</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+    </table>
+<!--    表格END-->
+    <!--    加载-->
+    <div class="text-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!--    加载END-->
+    <!--    警告框-->
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
+    </div>
+    <!--    警告框END-->
+    <!--    分页-->
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-end ">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">下一页</a>
+            </li>
+        </ul>
+    </nav>
+    <!--分页END-->
+</div>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="../js/staffList.js"></script>
+</body>
+</html>
