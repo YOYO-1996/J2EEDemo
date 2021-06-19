@@ -1,0 +1,30 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+
+# IDE Files #
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+dist
+build
+bin
+*.class
+target/
+test-output/
+build.xml
+ebay-build.xml
+/.metadata
+dist
+build
+bin
+rebel.xml
+/tests/
+/coverage/
+*/temp_persist_config_*.xml
+*/src/main/resources/buildinfo.properties

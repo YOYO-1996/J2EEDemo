@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+    <link href="static/css/public.css" rel="stylesheet">
+</head>
+<body>
+
+<ul class="layui-nav">
+    <li class="layui-nav-item"><a href="">明日方舟数据库</a></li>
+    <li class="layui-nav-item"><a href="">大数据</a></li>
+    <li class="layui-nav-item"><a href="">社区</a></li>
+</ul>
+<div class="contentBody">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">干员姓名：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">星级：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="like[6]" lay-skin="primary" title="6星" checked="">
+                    <input type="checkbox" name="like[5]" lay-skin="primary" title="5星" checked="">
+                    <input type="checkbox" name="like[4]" lay-skin="primary" title="4星" checked="">
+                    <input type="checkbox" name="like[3]" lay-skin="primary" title="3星" checked="">
+                    <input type="checkbox" name="like[2]" lay-skin="primary" title="2星" checked="">
+                    <input type="checkbox" name="like[1]" lay-skin="primary" title="1星" checked="">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="query">查询</button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">干员职业：</label>
+                <div class="layui-input-block">
+                    <select name="career" lay-filter="aihao">
+                        <option value=""></option>
+                        <option value="0">写作</option>
+                        <option value="1" selected="">阅读</option>
+                        <option value="2">游戏</option>
+                        <option value="3">音乐</option>
+                        <option value="4">旅行</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">干员派别：</label>
+                <div class="layui-input-block">
+                    <select name="faction" lay-filter="aihao">
+                        <option value=""></option>
+                        <option value="0">写作</option>
+                        <option value="1" selected="">阅读</option>
+                        <option value="2">游戏</option>
+                        <option value="3">音乐</option>
+                        <option value="4">旅行</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button type="reset" class="layui-btn layui-btn-danger">重置</button>
+            </div>
+        </div>
+    </form>
+    <hr class="layui-bg-green">
+    <table class="layui-hide" id="test" lay-filter="test"></table>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script src="//unpkg.com/layui@2.6.8/dist/layui.js">
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+    var form = layui.form;
+
+    //监听导航点击
+    element.on('nav(demo)', function (elem) {
+        //console.log(elem)
+        layer.msg(elem.text());
+    });
+
+
+    //监听提交
+    form.on('submit(query)', function (data) {
+        var formData = data.field;
+        table.reload('test', {
+            page: {
+                curr: 1 //重新从第 1 页开始
+            }
+            , where: {//这里传参  向后台
+                formData: formData
+                //可传多个参数到后台...  ，分隔
+            }
+            , url: '/Staff/queryStaffList'//后台做模糊搜索接口路径
+            , method: 'post'
+        })
+
+        return false;
+    });
+
+    //表单赋值
+    layui.$('#LAY-component-form-setval').on('click', function () {
+        form.val('example', {
+            "username": "贤心" // "name": "value"
+            , "password": "123456"
+            , "interest": 1
+            , "like[write]": true //复选框选中状态
+            , "close": true //开关状态
+            , "sex": "女"
+            , "desc": "我爱 layui"
+        });
+    });
+
+    //表单取值
+    layui.$('#LAY-component-form-getval').on('click', function () {
+        var data = form.val('example');
+        alert(JSON.stringify(data));
+    });
+
+    //=====================表格==========================
+    var table = layui.table;
+
+    table.render({
+        elem: '#test'
+        , url: '/Staff/queryStaffList'
+        , method: 'post'
+        , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+        , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+            title: '提示'
+            , layEvent: 'LAYTABLE_TIPS'
+            , icon: 'layui-icon-tips'
+        }]
+        , parseData: function (res) { //res 即为原始返回的数据
+            return {
+                "code": res.code,
+                "count": res.extendInfo.total, //解析数据长度
+                "data": res.extendInfo.staffList //解析数据列表
+            };
+        }
+        , title: '用户数据表'
+        , cols: [[
+            {type: 'checkbox', fixed: 'left'}
+            , {field: 'staId', title: 'ID', width: 80, fixed: 'left', unresize: true, sort: true}
+            , {field: 'staName', title: '名字', width: 120, edit: 'text'}
+            , {field: 'staSex', title: '性别', width: 80, edit: 'text', sort: true}
+            , {field: 'staRarity', title: '星级', width: 100}
+            , {field: 'staCareer', title: '职业'}
+            , {field: 'staFaction', title: '派别', width: 80, sort: true}
+            , {field: 'staCost', title: '部署费用', width: 120}
+            , {field: 'staAttackSpeed', title: '攻击速度', width: 100, sort: true}
+            , {field: 'staRedeploySpeed', title: '再部署时间', width: 120}
+            , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
+        ]]
+        // , page: true
+    });
+
+    //头工具栏事件
+    table.on('toolbar(test)', function (obj) {
+        var checkStatus = table.checkStatus(obj.config.id);
+        switch (obj.event) {
+            case 'getCheckData':
+                var data = checkStatus.data;
+                layer.alert(JSON.stringify(data));
+                break;
+            case 'getCheckLength':
+                var data = checkStatus.data;
+                layer.msg('选中了：' + data.length + ' 个');
+                break;
+            case 'isAll':
+                layer.msg(checkStatus.isAll ? '全选' : '未全选');
+                break;
+
+            //自定义头工具栏右侧图标 - 提示
+            case 'LAYTABLE_TIPS':
+                layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                break;
+        }
+        ;
+    });
+
+    //监听行工具事件
+    table.on('tool(test)', function (obj) {
+        var data = obj.data;
+        //console.log(obj)
+        if (obj.event === 'del') {
+            layer.confirm('真的删除行么', function (index) {
+                obj.del();
+                layer.close(index);
+            });
+        } else if (obj.event === 'edit') {
+            layer.prompt({
+                formType: 2
+                , value: data.email
+            }, function (value, index) {
+                obj.update({
+                    email: value
+                });
+                layer.close(index);
+            });
+        }
+    });
+
+
+</script>
+</body>
+</html>

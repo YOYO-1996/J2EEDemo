@@ -1,0 +1,30 @@
+package run.liuliuqiu.j2ee.service;
+
+import run.liuliuqiu.j2ee.dao.UserDao;
+import run.liuliuqiu.j2ee.entity.UserInfo;
+
+
+/**
+ * @author ：Tong
+ * @date ：Created in 2020/1/28 20:10
+ * @description：
+ * @version: $
+ */
+public class LoginService {
+    UserDao userDao = new UserDao();
+
+    public UserInfo queryUserInfo(String userMobile) {
+        return userDao.queryUserInfo(userMobile);
+    }
+
+    public void loginOn(String mobile, String Pwd) {
+        //判断用户是否存在
+
+        //判断用户状态
+
+        //判断密码是否正确
+
+        //记录登录时间
+
+    }
+}
